@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	private gameStates _currentState;
 	private string _currLevel;			// Current level
 	private string _name;				// Character name
-	private ArrayList roomList;
+	public ArrayList roomList;
 	private ArrayList npcList;
 	private ArrayList weaponList;
 	// + case: ArrayList<CaseElement>
