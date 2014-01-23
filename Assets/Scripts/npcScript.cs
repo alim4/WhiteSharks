@@ -14,7 +14,7 @@ public class npcScript : MonoBehaviour {
 
 
 	//enable conversation object if left mouse button is clicked.
-	void OnMouseDown(){
+	public void OnMouseDown(){
 		if(Input.GetMouseButton(0)){
 			conversation.renderer.enabled = true;
 			conversation.collider2D.enabled = true;
