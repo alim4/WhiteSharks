@@ -20,23 +20,20 @@ public class playerScript : CaseElement {
 	}
 	////Move the camera to the next scene when collides with the door object.
 	void OnTriggerEnter2D(Collider2D collider){
-		doorScript doorObj = collider.gameObject.GetComponent<doorScript> ();
+		DoorScript doorObj = collider.gameObject.GetComponent<DoorScript> ();
+
 		if (doorObj != null) {
+			string temp;
+			int tempIndex = 0;
+			if (doorObj.id == 0)
+				tempIndex = GameManager.Instance.currentRoomIndex - 1;
+			else if(doorObj.id ==1)
+				tempIndex = GameManager.Instance.currentRoomIndex + 1;
 
-			float newX = doorObj.newX;
-			float newY = doorObj.newY;
-			float sceneX = doorObj.sceneX;
-			float sceneY = doorObj.sceneY;
-			float sceneZ = doorObj.sceneZ;
-
-			//move the player to the next scene.
-			Vector3 temp = transform.position; 
-			temp.x = newX;
-			temp.y = newY;
-			mainChar.position = temp;
-			//move the camera to the next scene
-			Vector3 temp2 = new Vector3(sceneX,sceneY,sceneZ);
-			mainCam.transform.position = temp2;
+			temp = (string) GameManager.Instance.roomIDList[tempIndex];
+			Debug.Log("Room obtained:" + temp);
+			GameManager.Instance.currentRoomIndex = tempIndex;
+			Application.LoadLevel (temp);
 		}
 	}
 

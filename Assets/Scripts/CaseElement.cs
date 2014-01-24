@@ -8,8 +8,8 @@ public abstract class CaseElement : MonoBehaviour {
 	public string description;	//A text description of it
 	public Sprite profileImage; //Its base image (square mug-shot)
 
-	private GuiltLevel guilt;		//How is it related to the case?  
-	private int location;			//Where is it during gameplay, every room/scene has a corresponding Int id
+	public GuiltLevel guilt;		//How is it related to the case?  
+	public int location;			//Where is it during gameplay, every room/scene has a corresponding Int id
 	private GameObject conversation;//The associated dialogue when a case element is clicked
 	private bool visible;			//Is the element visible in the journal?
 

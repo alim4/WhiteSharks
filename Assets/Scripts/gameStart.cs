@@ -48,6 +48,7 @@ public class gameStart : MonoBehaviour {
 		DontDestroyOnLoad(GameManager.Instance);
 		DontDestroyOnLoad(InputManager.Instance);
 		GameManager.Instance.startState();
+
 	}
 
 	private void optionsMenu() {
