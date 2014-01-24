@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour {
 				Debug.Log("Match found");
 				temp.Add(n);
 			}
-				}
+		}
 		return temp;
 	}
 }

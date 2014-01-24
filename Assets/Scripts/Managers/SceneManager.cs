@@ -20,7 +20,6 @@ namespace Assets.Scenes.Scripts
 	/// </summary>
 	public static class Game
 	{
-		#region Properties
 		/// <summary>
 		/// The folder the levels file is located when the game is hosted in the editor.
 		/// </summary>
@@ -38,14 +37,6 @@ namespace Assets.Scenes.Scripts
 		/// The name of the world object. The world object and all of it's children are notified of game events.
 		/// </summary>
 		private const string WORLD_OBJECT = "World";
-		/// <summary>
-		/// The name of the game paused event.
-		/// </summary>
-		private const string ON_GAME_PAUSED_EVENT = "OnGamePaused";
-		/// <summary>
-		/// The name of the game resumed event.
-		/// </summary>
-		private const string ON_GAME_RESUMED_EVENT = "OnGameResumed";
 		
 		/// <summary>
 		/// Indicates if the levels file has been updated this run. If so, it is not updated again. This only applies to the game when it is hosted
@@ -56,15 +47,6 @@ namespace Assets.Scenes.Scripts
 		/// The names of all levels in the game.
 		/// </summary>
 		private static string[] _levels;
-		
-		/// <summary>
-		/// The previous Time.timeScale. This value is used to resume the game at the same pace it was paused at.
-		/// </summary>
-		private static float _previousTimeScale;
-		/// <summary>
-		/// Indicates if the game is currently paused.
-		/// </summary>
-		private static bool _isGamePaused;
 		
 		/// <summary>
 		/// Gets the names of all levels in the game.
@@ -99,74 +81,7 @@ namespace Assets.Scenes.Scripts
 				return _levels;
 			}
 		}
-		
-		/// <summary>
-		/// Gets a value that indicates if the game is currently paused.
-		/// </summary>
-		public static bool IsGamePaused
-		{
-			get { return _isGamePaused; }
-		}
-		#endregion
-		
-		#region Constructors & Destructors
-		/// <summary>
-		/// Initializes the Game.
-		/// </summary>
-		static Game()
-		{
-			// Get an initial previous time scale so that we won't accidentally resume with a scale of 0.
-			_previousTimeScale = Time.timeScale;
-		}
-		#endregion
-		
-		#region Game Management
-		/// <summary>
-		/// Pauses the game. The game paused event is fired for all game objects in the world object.
-		/// </summary>
-		public static void Pause()
-		{
-			Debug.Log("Game pausing.");
-			
-			// Pause the game and indicate that the game is actually paused.
-			_previousTimeScale = Time.timeScale;
-			Time.timeScale = 0.0f;
-			_isGamePaused = true;
-			
-			// Give every game object in the world the chance to react to the game pausing.
-			foreach (GameObject @object in GameObject.FindGameObjectsWithTag(WORLD_OBJECT))
-			{
-				@object.BroadcastMessage(ON_GAME_PAUSED_EVENT, SendMessageOptions.DontRequireReceiver);
-			}
-			
-			Debug.Log(String.Format("Game paused on Time.TimeScale = {0}.", Time.timeScale));
-		}
-		
-		/// <summary>
-		/// Resumes the game. The game resumed event is fired for all game objects in the world object.
-		/// </summary>
-		public static void Resume()
-		{
-			Debug.Log( "Game resuming." );
-			
-			// Indicate that the game is unpaused. Should anyone check this value, it would be in the game resume event, which is called just before the game is
-			// actually resumed.
-			_isGamePaused = false;
-			
-			// Give every game object in the world the chance to react to the game pausing.
-			foreach (GameObject @object in GameObject.FindGameObjectsWithTag(WORLD_OBJECT))
-			{
-				@object.BroadcastMessage(ON_GAME_RESUMED_EVENT, SendMessageOptions.DontRequireReceiver);
-			}
-			
-			// Unpause the game.
-			Time.timeScale = _previousTimeScale;
-			
-			Debug.Log(String.Format("Game resumed on Time.TimeScale = {0}.", Time.timeScale));
-		}
-		#endregion
-		
-		#region Level Management
+
 		#if UNITY_EDITOR
 		/// <summary>
 		/// This method is called when post-processing a build, which occurs after a build has been made. This method updates the levels file in the build directory.
@@ -297,6 +212,5 @@ namespace Assets.Scenes.Scripts
 			
 			return levelNames.ToArray();
 		}
-		#endregion
 	}
 }

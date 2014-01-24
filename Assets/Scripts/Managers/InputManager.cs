@@ -1,5 +1,5 @@
 ﻿// @author Anthony Lim
-// Manager for the game input
+// Manager for the game input, handles pause
 
 using UnityEngine;
 using System.Collections;
@@ -9,7 +9,6 @@ public class InputManager : MonoBehaviour {
 	private static InputManager instance;
 	private KeyCode _prevKeyPressed;
 	private PlayerState _currState;
-	private bool _isPause = false;
 	private float _buttonWidth = 150;
 
 	// Movement components
@@ -17,6 +16,23 @@ public class InputManager : MonoBehaviour {
 	private KeyCode _moveRight;
 	private KeyCode _moveUp;
 	private KeyCode _moveDown;
+
+	/// <summary>
+	/// The name of the game paused event.
+	/// </summary>
+	private const string ON_GAME_PAUSED_EVENT = "OnGamePaused";
+	/// <summary>
+	/// The name of the game resumed event.
+	/// </summary>
+	private const string ON_GAME_RESUMED_EVENT = "OnGameResumed";
+	/// <summary>
+	/// The previous Time.timeScale. This value is used to resume the game at the same pace it was paused at.
+	/// </summary>
+	private float _previousTimeScale;
+	/// <summary>
+	/// Indicates if the game is currently paused.
+	/// </summary>
+	private bool _isGamePaused;
 	
 	public static InputManager Instance {
 		get {
@@ -53,37 +69,64 @@ public class InputManager : MonoBehaviour {
 		return KeyCode.None;
 	}
 
-	void PauseMenu() {
-		_isPause = !_isPause;
-		if (_isPause) {
-			GameManager.Instance.setState(gameStates.JOURNAL);
-			Time.timeScale = 0;
-		} else {
-			GameManager.Instance.setState(gameStates.INGAME);
-			Time.timeScale = 1;
-		}
+	/// <summary>
+	/// Gets a value that indicates if the game is currently paused.
+	/// </summary>
+	public bool IsGamePaused {
+		get { return _isGamePaused; }
+	}
+
+	/// <summary>
+	/// Pauses the game. The game paused event is fired for all game objects in the world object.
+	/// </summary>
+	public void Pause() {
+		Debug.Log("Game pausing.");
+		
+		// Pause the game and indicate that the game is actually paused.
+		_previousTimeScale = Time.timeScale;
+		Time.timeScale = 0.0f;
+		_isGamePaused = true;
+		
+		Debug.Log(string.Format("Game paused on Time.TimeScale = {0}.", Time.timeScale));
+	}
+	
+	/// <summary>
+	/// Resumes the game. The game resumed event is fired for all game objects in the world object.
+	/// </summary>
+	public void Resume() {
+		Debug.Log( "Game resuming." );
+		
+		// Indicate that the game is unpaused. Should anyone check this value, it would be in the game resume event, which is called just before the game is
+		// actually resumed.
+		_isGamePaused = false;
+	
+		// Unpause the game.
+		Time.timeScale = _previousTimeScale;
+		
+		Debug.Log(string.Format("Game resumed on Time.TimeScale = {0}.", Time.timeScale));
 	}
 
 	void OnGUI() {
 		// This condition used for triggering pause menu
-		if (_isPause) {
+		if (_isGamePaused) {
 			if (GUI.Button (new Rect (Screen.width/2 - _buttonWidth, Screen.height/2, _buttonWidth, 30), "Unpause")) {
-				_isPause = !_isPause;
+				_isGamePaused = !_isGamePaused;
 				GameManager.Instance.setState(gameStates.INGAME);
-				Time.timeScale = 1;
+				Resume();
 			}
 
 			if (GUI.Button (new Rect (Screen.width/2 - _buttonWidth, Screen.height/2 + 40, _buttonWidth, 30), "Exit to Main Menu")) {
-				_isPause = !_isPause;
+				_isGamePaused = !_isGamePaused;
 				GameManager.Instance.setState(gameStates.MAINMENU);
 				Application.LoadLevel ("mainmenu");
+				Resume();
 			}
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
-		
+		_previousTimeScale = Time.timeScale;
 	}
 	
 	// Update is called once per frame
@@ -94,8 +137,10 @@ public class InputManager : MonoBehaviour {
 		}
 
 		// Input to open pause menu
-		if (Input.GetKeyDown(KeyCode.Escape) && Application.loadedLevelName != "mainmenu") {
-			PauseMenu ();
+		if (Input.GetKeyDown(KeyCode.Escape) && Application.loadedLevelName != "mainmenu" && !_isGamePaused) {
+			Pause();
+		} else if (Input.GetKeyDown(KeyCode.Escape) && Application.loadedLevelName != "mainmenu" && _isGamePaused) {
+			Resume();
 		}
 	}
 }
