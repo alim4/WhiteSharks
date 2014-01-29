@@ -11,7 +11,7 @@ public abstract class CaseElement : MonoBehaviour {
 	public GuiltLevel guilt;		//How is it related to the case?  
 	public int location;			//Where is it during gameplay, every room/scene has a corresponding Int id
 	private GameObject conversation;//The associated dialogue when a case element is clicked
-	private bool visible;			//Is the element visible in the journal?
+	public bool visible=false;			//Is the element visible in the journal?
 
 
 	//Setters for all Case Element fields
@@ -67,5 +67,13 @@ public abstract class CaseElement : MonoBehaviour {
 	
 	public GameObject getConv( ){
 		return conversation;
+	}
+
+	public bool isVisible(){
+		return visible;
+	}
+
+	public void setVisible(bool v){
+		visible = v;
 	}
 }

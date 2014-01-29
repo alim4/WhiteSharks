@@ -29,7 +29,7 @@ public class playerScript : CaseElement {
 				tempIndex = GameManager.Instance.currentRoomIndex - 1;
 			else if(doorObj.id ==1)
 				tempIndex = GameManager.Instance.currentRoomIndex + 1;
-
+			Debug.Log("Temp index:" + tempIndex);
 			temp = (string) GameManager.Instance.roomIDList[tempIndex];
 			Debug.Log("Room obtained:" + temp);
 			GameManager.Instance.currentRoomIndex = tempIndex;

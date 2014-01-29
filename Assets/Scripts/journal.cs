@@ -3,13 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class journal : MonoBehaviour {
+
+	private static journal instance;
+	private static int MAX_NPC = 3;
+
+	public static journal Instance {
+		get {
+			if (instance == null) {
+				Debug.Log("JOURNAL: Instance null, creating new Journal");
+				instance = new GameObject("journal").AddComponent<journal>();
+			}
+			return instance;
+		}
+	}
 	//PoI buttons
 	public GameObject poI2;
 
 	public List<NPC> personsOfInterest;
 
 	//Test case elements of NPC type
-	public Sprite emptyPortrait;
+	public static Sprite emptyPortrait;
 	private string emptyName;
 	public NPC npc1;
 	public NPC npc2;
@@ -21,7 +34,7 @@ public class journal : MonoBehaviour {
 	public GameObject viewTab3;
 
 	//Grab buttons and textfield from view. Will change to use gameobject find.
-	private List<GameObject> poiButtonList;
+	private static List<GameObject> poiButtonList;
 	public GameObject poiButton1;
 	public GameObject poiButton2;
 	public GameObject poiButton3;
@@ -34,10 +47,7 @@ public class journal : MonoBehaviour {
 		emptyName = "?????";
 
 		//Person of interest list.
-		personsOfInterest = new List<NPC>();
-		personsOfInterest.Add(npc1);
-		personsOfInterest.Add(npc2);
-		personsOfInterest.Add(npc3);
+		personsOfInterest = GameManager.npcList;
 
 		//Listens for tab button presses in journal and runs onClick with button clicked as parameter.
 		/*UIEventListener.Get (viewTab1).onClick += this.onTabClick;
@@ -75,7 +85,8 @@ public class journal : MonoBehaviour {
 	//Needs clean up (repetitive). Needs to be general to work with both PoI view and object view
 	void onClick(GameObject button){
 		if (button == poiButton1) {
-			if(personsOfInterest[0] != null){
+			Debug.LogError(GameManager.npcList[0].isVisible());
+			if(GameManager.npcList[0].isVisible()){
 				poiName.text = personsOfInterest[0].getElementName();
 				poiDescription.text = personsOfInterest[0].getDescription();
 			}
@@ -85,7 +96,7 @@ public class journal : MonoBehaviour {
 			}
 		}
 		else if(button == poiButton2) {
-			if(personsOfInterest[1] != null){
+			if(GameManager.npcList[1].isVisible()){
 				poiName.text = personsOfInterest[1].getElementName();
 				poiDescription.text = personsOfInterest[1].getDescription();
 			}
@@ -95,7 +106,7 @@ public class journal : MonoBehaviour {
 			}
 		}
 		else if(button == poiButton3) {
-			if(personsOfInterest[2] != null){
+			if(GameManager.npcList[2].isVisible()){
 				poiName.text = personsOfInterest[2].getElementName();
 				poiDescription.text = personsOfInterest[2].getDescription();
 			}
@@ -107,21 +118,28 @@ public class journal : MonoBehaviour {
 	}
 
 	//Initialize PoI view.
-	void initPoIView(){
+	public void initPoIView(){
 		for (int i = 0; i < personsOfInterest.Count; i++) {
-			//Debug.Log (i);
+			Debug.Log (i);
 			if(personsOfInterest[i] != null){
-				Debug.Log(personsOfInterest[i].getProfileImage ().ToString ());
+				Debug.Log("getting image " +i+ ": " + personsOfInterest[i].getProfileImage ().ToString ());
 				//GetComponent is slow, will use gameobject find component in children in later iteration.
 				poiButtonList[i].gameObject.GetComponent<UI2DSprite>().sprite2D = personsOfInterest[i].getProfileImage();
 			}
 			else {
+				Debug.LogError("Im null");
 				poiButtonList[i].gameObject.GetComponent<UI2DSprite>().sprite2D = emptyPortrait;
 			}
 		}
 	}
 
-	void changePoIView(){
+	public void changePoIView(NPC n){
+		//if (indexPoI <= MAX_NPC - 1) {
+		//	personsOfInterest[i]=n;
+			Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		//	Debug.Log("getting image " +i+ ": " + personsOfInterest[i].getProfileImage ().ToString ());
+		//	poiButtonList[i].gameObject.GetComponent<UI2DSprite>().sprite2D = personsOfInterest[i].getProfileImage();
+		//}
 
 	}
 }

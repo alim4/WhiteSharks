@@ -69,9 +69,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementName: Random NPC 1
   description: She is a random person
-  profileImage: {fileID: 0}
+  profileImage: {fileID: 21300000, guid: b09216066b7164e0ab1615dd9163233b, type: 3}
   guilt: 0
   location: 2
+  visible: 1
   conversationObj: {fileID: 0}
   playerObj: {fileID: 0}
   box: {fileID: 6100000}

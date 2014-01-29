@@ -294,6 +294,7 @@ MonoBehaviour:
   profileImage: {fileID: 0}
   guilt: 0
   location: 0
+  visible: 0
   maxSpeed: 8
   mainCam: {fileID: 0}
   mainChar: {fileID: 1767989652}
@@ -384,7 +385,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1872492335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94a157905c28044d9eb3cb23388bf44, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f67cbf8240874835a8a9a1e29d5690a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
