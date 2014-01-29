@@ -53,9 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementName: Leo Cooper
   description: This is a second random NPC so that we have 3
-  profileImage: {fileID: 21300000, guid: 61dc4d35d018ed54cb8bb5a2dcb6e2ea, type: 3}
+  profileImage: {fileID: 21300000, guid: 3874fdf46ab764e33bd89d395774b986, type: 3}
   guilt: 0
   location: 2
+  visible: 0
   conversationObj: {fileID: 0}
   playerObj: {fileID: 0}
   box: {fileID: 6100000}

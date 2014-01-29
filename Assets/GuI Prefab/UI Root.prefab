@@ -2184,7 +2184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poI2: {fileID: 100052}
   personsOfInterest: []
-  emptyPortrait: {fileID: 21300000, guid: 27994b798ef710f4ab5b8b366a30358c, type: 3}
   npc1: {fileID: 0}
   npc2: {fileID: 0}
   npc3: {fileID: 0}
