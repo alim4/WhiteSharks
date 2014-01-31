@@ -18,7 +18,7 @@ public class playerScript : CaseElement {
 	void Start(){
 		anim = GetComponent<Animator>();
 	}
-	////Move the camera to the next scene when collides with the door object.
+	//change scene when collide with door
 	void OnTriggerEnter2D(Collider2D collider){
 		DoorScript doorObj = collider.gameObject.GetComponent<DoorScript> ();
 
@@ -33,13 +33,17 @@ public class playerScript : CaseElement {
 			temp = (string) GameManager.Instance.roomIDList[tempIndex];
 			Debug.Log("Room obtained:" + temp);
 			GameManager.Instance.currentRoomIndex = tempIndex;
+			GameManager.Instance.SetNextX(doorObj.x);
+			GameManager.Instance.SetNextY(doorObj.y);
+			DestoryPlayer();
 			Application.LoadLevel (temp);
 		}
 	}
 
 	void FixedUpdate(){
 		float move = Input.GetAxis ("Horizontal");
-		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		float moveVer = Input.GetAxis ("Vertical");
+		rigidbody2D.velocity = new Vector2 (move * maxSpeed, moveVer * maxSpeed);
 		anim.SetFloat("Speed",Mathf.Abs(move));
 
 		if(move < 0 && !facingLeft)
@@ -54,5 +58,8 @@ public class playerScript : CaseElement {
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+	public void DestoryPlayer(){
+		Destroy (Scene.player);
 	}
 }

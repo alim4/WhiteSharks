@@ -16,8 +16,9 @@ public class GameManager : MonoBehaviour {
 	public ArrayList weaponList;
 	public ArrayList roomIDList;
 	public int currentRoomIndex;
-
+	private string currentMainCharacter;
 	public Case theCase; //Generate this!
+	public float nextX, nextY;
 
 	// + case: ArrayList<CaseElement>
 	// + npcs: ArrayList<CaseElement>
@@ -37,6 +38,30 @@ public class GameManager : MonoBehaviour {
 	public void OnApplicationQuit() {
 		instance = null;
 	}
+	//set the next x value
+	public void SetNextX(float x){
+		nextX = x;
+	}
+	//return the nextX value
+	public float GetNextX(){
+		return nextX;
+	}
+	//set the nextY value
+	public void SetNextY(float y){
+		nextY = y;
+	}
+	//return the nextY value
+	public float GetNextY(){
+		return nextY;
+	}
+	//set the main character that the player is currently playing
+	public void SetMainCharacter(string main){
+		currentMainCharacter = main;
+	}
+	//return the main character.
+	public string GetMainCharacter(){
+		return currentMainCharacter;
+	}
 
 	/// <summary>
 	/// Starts the game state and sets initial values
@@ -52,8 +77,8 @@ public class GameManager : MonoBehaviour {
 		_name = "My Character";
 		_currentState = gameStates.INGAME;
 
-		// Load Level 1
-		Application.LoadLevel ("stage1");
+		// Load character select screen
+		Application.LoadLevel ("CharacterSele");
 	}
 
 	/// <summary>

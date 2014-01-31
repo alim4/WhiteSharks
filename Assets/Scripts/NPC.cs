@@ -19,6 +19,7 @@ public class NPC : CaseElement {
 	public ArrayList animations;		//An array list of sprites representing the animation
 	public string scene;
 
+
 	//enable conversation object if left mouse button is clicked.
 	public void OnMouseDown(){
 		if(Input.GetMouseButton(0)){
@@ -27,16 +28,21 @@ public class NPC : CaseElement {
 			GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
 		}
 	}
+	void Start(){
+		playerObj = Scene.player;
+	}
 	//switch the displaying order of the npc. 
 	void Update () {
-		/*if (transform.position.y < playerObj.transform.position.y) {
-			renderer.sortingLayerName= "foreground";
-			renderer.sortingOrder = 2;
-			box.isTrigger = true;
+		if (playerObj != null){
+			if (transform.position.y < playerObj.transform.position.y) {
+				renderer.sortingLayerName= "foreground";
+				renderer.sortingOrder = 2;
+				box.isTrigger = true;
+			}
+			else{
+				renderer.sortingLayerName= "middleground";
+				box.isTrigger = false;
+			}
 		}
-		else{
-			renderer.sortingLayerName= "middleground";
-			box.isTrigger = false;
-		}*/
 	}
 }
