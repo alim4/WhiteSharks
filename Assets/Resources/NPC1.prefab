@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
-  - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
   m_Layer: 0
   m_Name: NPC1
@@ -26,25 +25,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3735671, y: -1.20346463, z: 200}
+  m_LocalPosition: {x: -2.53999996, y: -2.4000001, z: 200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!50 &5000000
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Mass: 100
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -53,7 +37,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1.587304, y: 5.41710043}
   m_Center: {x: -.14414978, y: -.0314495564}
 --- !u!114 &11400000
@@ -67,18 +51,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e55abf860691c541a849b33c21c6089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: Random NPC 1
-  description: She is a random person
-  profileImage: {fileID: 21300000, guid: b09216066b7164e0ab1615dd9163233b, type: 3}
-  guilt: 0
+  elementName: Peijun Shi
+  description: 'Mrs. Shi is a well known shopkeeper of the Community Housing main
+    plaza market, and has maintained her stall (tent?) for more than 30 years now. '
+  profileImage: {fileID: 21300000, guid: 5966b3b796970448caf08c4e7987902e, type: 3}
+  guilt: 1
   location: 2
   visible: 1
   conversationObj: {fileID: 0}
   playerObj: {fileID: 0}
   box: {fileID: 6100000}
-  weaponProficiency: 
+  weaponProficiency: 3
   highClass: 0
+  alibi:
+  - 'I''m glad you asked! '
+  - Belly
+  - 'I''m glad you asked! '
+  - Belly
+  - 'I''m glad you asked! '
+  - Finn
   scene: scene1
+  personalSentence: 'I''m glad you asked! '
+  convo: I'm glad you asked!  I was in the Belly.
+  convoBubble: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,7 +95,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_SortingLayerID: 2971093031
-  m_Sprite: {fileID: 21300000, guid: 651079e6785ba8c48a7eaf04fb9113bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78422715a9353441bafee92e5c7914d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

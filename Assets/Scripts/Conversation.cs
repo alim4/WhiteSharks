@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Conversation : MonoBehaviour {
 
@@ -22,19 +23,15 @@ public class Conversation : MonoBehaviour {
 	 * gets a random room from the game manager (so it could be a lie or not).
 	 * If it's suspect or witness, it uses all the elements in his/her alibi (and returns them as string).
 	 */
-	string createConversation (ArrayList alibi){
+	public static string createConversation (List<string> alibi){
 		switch (alibi.Count) {
 		case 1:
-			int roomListSize = GameManager.Instance.roomList.Count;
-			return alibi[0] + ", I was in " + (string)GameManager.Instance.roomList[Random.Range(0,roomListSize)] + ".";
+			return alibi[0] + ", I was in " + alibi[1] + ".";
 			break;
 		case 2:
-			//getRoomName()
 			return alibi[0] + ", I was in " + alibi[1] + ".";
 			break;
 		case 3:
-			//getRoomName()
-			NPC n = (NPC)alibi[2];
 			return alibi[0] + ", I was in " + alibi[1] + " with " + alibi[2] + ".";
 			break;
 		}
@@ -42,11 +39,11 @@ public class Conversation : MonoBehaviour {
 	}
 
 
-	string createInformation (GuiltLevel guilt){
-		if (guilt == GuiltLevel.guilty) {
-			return "This weapon was used.";		
+	string getInformation (CaseObject c){
+		if (c.guilt == GuiltLevel.guilty) {
+			return (string) c.infoGuilty[Random.Range(0, c.infoGuilty.Count)];		
 		} else {
-			return "This weapon wasn't used.";				
+			return (string) c.infoNotGuilty[Random.Range(0, c.infoNotGuilty.Count)];				
 		}
 	}
 }

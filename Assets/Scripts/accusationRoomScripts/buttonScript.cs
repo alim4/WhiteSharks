@@ -6,7 +6,7 @@ public class buttonScript : MonoBehaviour {
 	private int type;
 	private int number;
 
-	private int currentSuspect = 0;
+	public int currentSuspect = 0;
 	private int currentWeapon = 0;
 	private int currentRoom = 0;
 
@@ -48,7 +48,7 @@ public class buttonScript : MonoBehaviour {
 		if(Input.GetMouseButton(0)){
 			if (type < 3) {
 				buttonAccuse.GetComponent<accusationScript>().setSelected(number, type);
-				printTest();
+				//printTest();
 				if (type == 0) {
 					backButton1.GetComponent<backButtonScript>().setMotion(transform.position);
 				}
@@ -66,7 +66,7 @@ public class buttonScript : MonoBehaviour {
 	}
 
 	//this is only for testing purposes
-	void printTest(){
+	/*void printTest(){
 		string test;
 		if (type == 0) {
 				test = "suspect!";
@@ -81,11 +81,11 @@ public class buttonScript : MonoBehaviour {
 	}
 
 	//this too is just for testing purposes
-	void getSuspicions() {
+	/*void getSuspicions() {
 		currentSuspect = buttonAccuse.GetComponent<accusationScript>().showSuspect();
 		currentWeapon = buttonAccuse.GetComponent<accusationScript>().showWeapon();
 		currentRoom = buttonAccuse.GetComponent<accusationScript>().showRoom();
-	}
+	}*/
 
 	//to go back to the case without accusing anything
 	void goBack() {

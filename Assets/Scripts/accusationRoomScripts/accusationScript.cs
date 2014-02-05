@@ -6,9 +6,9 @@ using System.Collections;
 
 public class accusationScript : MonoBehaviour {
 	//currently selected nouns
-	private int selectSuspect = -1;
-	private int selectWeapon = -1;
-	private int selectRoom = -1;
+	public NPC selectSuspect = null;
+	public CaseObject selectWeapon = null;
+	private string selectRoom = "";
 
 	public GameObject mapButton1, mapButton2, suspectButton1, suspectButton2,
 	weaponButton1, weaponButton2, backButton;// alexiaChat;
@@ -17,6 +17,12 @@ public class accusationScript : MonoBehaviour {
 	private Color original;
 
 	private string hint = "";
+	private string[] hints = {
+				"you're wrong, sweetie...",
+				"you're on the right track...",
+				"you're almost there...",
+				"you solved it."
+		};
 	private string hint0 = "you're wrong, sweetie...";
 	private string hint1 = "you're on the right track...";
 	private string hint2 = "you're almost there...";
@@ -24,9 +30,9 @@ public class accusationScript : MonoBehaviour {
 
 	//gonna need to do some calls to get this
 	//but for now default to 1
-	private int answerSuspect = 1;
-	private int answerWeapon = 1;
-	private int answerRoom = 1;
+	private NPC answerSuspect;
+	private CaseObject answerWeapon;
+	private string answerRoom;
 
 	
 	/* FUNCTIONS */
@@ -53,6 +59,11 @@ public class accusationScript : MonoBehaviour {
 		//alexiaChat.GetComponent<SpriteRenderer>().color = clear;
 
 		//guiText.font.material.color = Color.black;
+		answerSuspect = GameManager.guilty;
+		answerWeapon = GameManager.weapon;
+		answerRoom = GameManager.room;
+		Debug.Log(GameManager.theCase);
+
 	}
 	
 	// Update is called once per frame
@@ -74,23 +85,26 @@ public class accusationScript : MonoBehaviour {
 	//changes selected noun
 	public void setSelected(int selected, int type) {
 		if (type == 0) {
-			selectSuspect = selected;
+			selectSuspect = GameManager.npcList[selected];
+			Debug.Log ("selected suspect " + selectSuspect.elementName);
 		}
 		else if (type == 1) {
-			selectWeapon = selected;
+			selectWeapon = GameManager.weaponList[selected];
+			Debug.Log ("selected weapon " + selectWeapon.elementName);
 		}
-		else selectRoom = selected;
+		else selectRoom = GameManager.roomList[selected];
+		Debug.Log ("selected room " + selectRoom);
 	}
 
-	public int showSuspect() {
+	public NPC showSuspect() {
 		return selectSuspect;
 	}
 
-	public int showWeapon() {
+	public CaseObject showWeapon() {
 		return selectWeapon;
 	}
 
-	public int showRoom() {
+	public string showRoom() {
 		return selectRoom;
 	}
 
@@ -101,24 +115,12 @@ public class accusationScript : MonoBehaviour {
 
 			//we have to generate a hint and set the chat to show
 			int progress = 0;
-			if (selectSuspect == answerSuspect) progress++;
-			if (selectRoom == answerRoom) progress++;
-			if (selectWeapon == answerWeapon) progress++;
-			if (progress == 0) {
-				hint = hint0;
-			}
-			else if (progress == 1) {
-				hint = hint1;
-			}
-			else if (progress == 2) {
-				hint = hint2;
-			}
-			else if (progress == 3) {
-				hint = hint3;
-			}
-			else {
-				print("shouldn't be reaching progress="+progress);
-			}
+
+			if (selectSuspect.elementName.CompareTo(answerSuspect.elementName) == 0) progress++;
+			if (selectRoom.CompareTo(answerRoom) == 0) progress++;
+			if (selectWeapon.elementName.CompareTo(answerWeapon.elementName) == 0) progress++;
+			Debug.Log("Progress: " + progress);
+			hint = hints[progress];
 		}
 	}
 

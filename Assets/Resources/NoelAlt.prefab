@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.614638209, z: 0}
+  m_LocalPosition: {x: -3, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37,8 +37,8 @@ BoxCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 4.75}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -56,15 +56,26 @@ MonoBehaviour:
     outstanding member of our community. Graduated with honours in both human biology
     and psychology, Noel is the person to get in touch with if you ever feel in need
     of help.
-  profileImage: {fileID: 21300000, guid: 6475629552f334fbe828e4ec4fb0f6aa, type: 3}
-  guilt: 0
+  profileImage: {fileID: 21300000, guid: 7123055adce4b417d874c7110aaa8326, type: 3}
+  guilt: 2
   location: 1
+  visible: 1
   conversationObj: {fileID: 0}
   playerObj: {fileID: 0}
   box: {fileID: 6100000}
-  weaponProficiency: 
+  weaponProficiency: 6
   highClass: 1
+  alibi:
+  - 'Oh well, you know... '
+  - Finn
+  - 'Oh well, you know... '
+  - Belly
+  - 'Oh well, you know... '
+  - Belly
   scene: scene1
+  personalSentence: 'Oh well, you know... '
+  convo: Oh well, you know...  I was in the Finn.
+  convoBubble: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -86,7 +97,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 1982072587
-  m_Sprite: {fileID: 21300000, guid: 6475629552f334fbe828e4ec4fb0f6aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 063256c10c35f44b4ad8e4ccb59f3bc6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

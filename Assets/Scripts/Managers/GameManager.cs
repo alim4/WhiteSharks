@@ -11,14 +11,17 @@ public class GameManager : MonoBehaviour {
 	private gameStates _currentState;
 	private string _currLevel;			// Current level
 	private string _name;				// Character name
-	public ArrayList roomList;
+	public static List<string> roomList = new List<string>();
 	public static List<NPC> npcList = new List<NPC>();
-	public ArrayList weaponList;
+	public static List<CaseObject> weaponList= new List<CaseObject>();
 	public ArrayList roomIDList;
 	public int currentRoomIndex;
 	private string currentMainCharacter;
-	public Case theCase; //Generate this!
+	public static Case theCase = new Case(); //Generate this!
 	public float nextX, nextY;
+	public static NPC guilty;
+	public static CaseObject weapon;
+	public static string room;
 
 	// + case: ArrayList<CaseElement>
 	// + npcs: ArrayList<CaseElement>
@@ -86,7 +89,10 @@ public class GameManager : MonoBehaviour {
 	/// </summary>
 	public void generateCase() {
 		// case generation
+
 		CaseGenerator c = new CaseGenerator ();
+		c.generateCase();
+		Debug.Log ("the case in GM " + guilty + " " + weapon + " " + room);
 
 	}
 
@@ -178,11 +184,17 @@ public class GameManager : MonoBehaviour {
 		roomIDList = new ArrayList ();
 		roomIDList.Add("stage1");
 		roomIDList.Add("stage2");
+		roomList.Add ("Finn");
+		roomList.Add ("Belly");
 		npcList.Add(Resources.Load<NPC>("NoelAlt"));
 		npcList.Add(Resources.Load<NPC>("NPC1"));
 		npcList.Add(Resources.Load<NPC>("RandomNPC"));
+		weaponList.Add(Resources.Load<CaseObject>("Weapon1"));
+		weaponList.Add(Resources.Load<CaseObject>("Weapon2"));
+		Debug.LogError ("Generating case");
+		generateCase ();
 		//Debug.Log ("GM NPClist count: " + npcList.Count);
-		Debug.Log ("Room ID list count:" + roomIDList.Count);
+		//Debug.Log ("Room ID list count:" + roomIDList.Count);
 
 	}
 

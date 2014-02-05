@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Case : MonoBehaviour {
+public class Case : Object {
 
 	private NPC guiltyNpc;		//Who is guilty in this case?
 	private CaseObject weapon;	//What weapon did they use?
