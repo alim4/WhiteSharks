@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Case : Object {
 
 	private NPC guiltyNpc;		//Who is guilty in this case?
 	private CaseObject weapon;	//What weapon did they use?
 	private string room;		//Which room did the murder take place in?
+	public List<CaseObject> activeWeapons = new List<CaseObject>();
 
 	public NPC getGuilty(){
 		return guiltyNpc;

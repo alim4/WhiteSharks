@@ -4,6 +4,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class GameManager : MonoBehaviour {
 	// Declare properties
@@ -13,19 +14,24 @@ public class GameManager : MonoBehaviour {
 	private string _name;				// Character name
 	public static List<string> roomList = new List<string>();
 	public static List<NPC> npcList = new List<NPC>();
+	public static List<NPC> witnessList = new List<NPC>();
 	public static List<CaseObject> weaponList= new List<CaseObject>();
 	public ArrayList roomIDList;
 	public int currentRoomIndex;
 	private string currentMainCharacter;
+	public CaseGenerator generator;
 	public static Case theCase = new Case(); //Generate this!
 	public float nextX, nextY;
 	public static NPC guilty;
 	public static CaseObject weapon;
 	public static string room;
 
-	// + case: ArrayList<CaseElement>
-	// + npcs: ArrayList<CaseElement>
-	// + objects: ArrayList<CaseElement>
+	//Handles mouse cursor information
+	public static int cursorSize = 64;
+	public static List<Texture2D> mouseSprites;
+	public static string[] spriteIndex;
+	public static Texture2D currMouse;
+
 
 	public static GameManager Instance {
 		get {
@@ -88,12 +94,10 @@ public class GameManager : MonoBehaviour {
 	/// Generates the case
 	/// </summary>
 	public void generateCase() {
-		// case generation
-
-		CaseGenerator c = new CaseGenerator ();
-		c.generateCase();
-		Debug.Log ("the case in GM " + guilty + " " + weapon + " " + room);
-
+		Debug.Log (theCase.getRoom());
+		theCase = generator.generateCase();
+		//Debug.Log ("the case in GM " + guilty + " " + weapon + " " + room);
+		Debug.Log (theCase.getRoom());
 	}
 
 	/// <summary>
@@ -111,16 +115,7 @@ public class GameManager : MonoBehaviour {
 	public void drawScore() {
 		// draws the score on the screen
 	}
-
-//	public void updateJNPC(NPC n) {
-//
-//	}
-//
-//	public void updateJObject(CaseObject o) {
-//
-//	}
-
-
+	
 	/// <summary>
 	/// Quits the game
 	/// </summary>
@@ -173,28 +168,79 @@ public class GameManager : MonoBehaviour {
 
 	public void OnGUI() {
 		GUI.TextArea(new Rect(1, 1, 100, 20), _currentState.ToString());
+
+		//Handle mouse updates here
+
+		GUI.DrawTexture (new Rect (Input.mousePosition.x - cursorSize / 2 + 1, (Screen.height - Input.mousePosition.y) - cursorSize / 2 + 1,
+		                      cursorSize, cursorSize), currMouse);
+
 	}
 
 	void Update() {
 		//print ("Test??");
 	}
 
+	//Initialize the sprite array for the mouse to draw
+	//Loads in from Sprites/Mouse Icons
+	//Sets the initial icon to Walk
+	void setIcons(){
+
+		mouseSprites = new List<Texture2D>();
+		Screen.showCursor = false;
+
+		foreach (object o in Resources.LoadAll("MouseIcons", typeof(Texture2D))) {
+			mouseSprites.Add(o as Texture2D);
+		}
+
+		spriteIndex = new string[mouseSprites.Count];
+		
+		for(int i=0; i< spriteIndex.Length; i++) {
+			spriteIndex[i] = mouseSprites[i].name;
+		}
+
+		currMouse = (Texture2D) mouseSprites[Array.IndexOf(spriteIndex, "Walk_Icon")];
+	}
+
+	//Updates the current sprite when called by another game object
+	//Takes in a string based on what kind of object it is that signifies the icon the cursor should be
+	public void updateMouseIcon(string whichSprite){
+		currMouse = (Texture2D)mouseSprites [Array.IndexOf (spriteIndex, whichSprite)];
+
+		print (currMouse.ToString () + " WHEEEE");
+	}
+
 	//Testing purposes
 	void Start(){
+		//start location
+		nextX = -6.440672f;
+		nextY = -5.890769f;
+		//For a changing cursor, load in all of its sprites into the list
+		setIcons ();
+
+
 		roomIDList = new ArrayList ();
 		roomIDList.Add("stage1");
 		roomIDList.Add("stage2");
-		roomList.Add ("Finn");
-		roomList.Add ("Belly");
-		npcList.Add(Resources.Load<NPC>("NoelAlt"));
-		npcList.Add(Resources.Load<NPC>("NPC1"));
-		npcList.Add(Resources.Load<NPC>("RandomNPC"));
-		weaponList.Add(Resources.Load<CaseObject>("Weapon1"));
-		weaponList.Add(Resources.Load<CaseObject>("Weapon2"));
-		Debug.LogError ("Generating case");
+		roomIDList.Add("stage3");
+		roomIDList.Add("stage4");
+		roomIDList.Add("stage5");
+		roomIDList.Add("stage6");
+		roomList.Add ("Gym");
+		roomList.Add ("Cafe");
+		roomList.Add ("Office");
+		npcList.Add(Resources.Load<NPC>("LiamOShea"));
+		npcList.Add(Resources.Load<NPC>("NinaWalker"));
+		npcList.Add(Resources.Load<NPC>("JoshSusach"));
+		witnessList.Add(Resources.Load<NPC>("NoelAlt"));
+		witnessList.Add(Resources.Load<NPC>("PeijunShi"));
+		witnessList.Add(Resources.Load<NPC>("CarlosFranco"));
+		weaponList.Add(Resources.Load<CaseObject>("eSword"));
+		weaponList.Add(Resources.Load<CaseObject>("LaserPistol"));
+		weaponList.Add(Resources.Load<CaseObject>("MetalPipe"));
+		weaponList.Add(Resources.Load<CaseObject>("RadioactiveIceCubes"));
+		weaponList.Add(Resources.Load<CaseObject>("VSs"));
+		generator = new CaseGenerator ();
 		generateCase ();
-		//Debug.Log ("GM NPClist count: " + npcList.Count);
-		//Debug.Log ("Room ID list count:" + roomIDList.Count);
 
 	}
 
@@ -208,6 +254,18 @@ public class GameManager : MonoBehaviour {
 		}
 		return temp;
 	}
+
+	public static List<NPC> getSceneWitnessList(int sceneID){ 
+		List<NPC> temp = new List<NPC>();
+		foreach (NPC n in witnessList) {
+			if (n.location == sceneID){
+				//Debug.Log("Match found");
+				temp.Add(n);
+			}
+		}
+		return temp;
+	}
+
 }
 
 public enum gameStates {

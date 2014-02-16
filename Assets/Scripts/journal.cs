@@ -1,12 +1,12 @@
-﻿//Adrian
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class journal : MonoBehaviour {
 
 	private static journal instance;
-	private static int MAX_NPC = 3;
+	//private static int MAX_NPC = 3;
 	private static journal j;
 
 	public static journal Instance {
@@ -35,12 +35,15 @@ public class journal : MonoBehaviour {
 	private static List<GameObject> viewTabList;
 	private static List<GameObject> poiButtonList;
 	public static List<GameObject> objectButtonList;
-
-	public GameObject poiGrid;
+	
+	public GameObject poiButtonGrid;
+	public UI2DSprite poiPortrait;
 	public GameObject objectGrid;
 
 	public UILabel nameLabel;
 	public UILabel descriptionLabel;
+	public UILabel panelNameLabel;
+	public UILabel timeLabel;
 	
 	public GameObject poiView;
 	public GameObject mapView;
@@ -84,6 +87,7 @@ public class journal : MonoBehaviour {
 		initPoIView ();
 		initObjView ();
 		changeView (0);
+		StartCoroutine (UpdateTime ());
 	}
 
 	//Single onclick function for any button in the journal.
@@ -111,19 +115,19 @@ public class journal : MonoBehaviour {
 				mapView.SetActive(false);
 				poiView.SetActive(true);
 				objectGrid.SetActive(false);
-				poiGrid.SetActive(true);
+				//poiGrid.SetActive(true);
 				break;
 			case 1://Object
 				mapView.SetActive (false);
 				poiView.SetActive(true);
 				objectGrid.SetActive(true);
-				poiGrid.SetActive(false);
+				//poiGrid.SetActive(false);
 				break;
 			case 2://Map
 				mapView.SetActive (true);
 				poiView.SetActive(false);
 				objectGrid.SetActive(false);
-				poiGrid.SetActive(false);
+				//poiGrid.SetActive(false);
 				break;
 		}
 		clearLabels ();
@@ -131,14 +135,24 @@ public class journal : MonoBehaviour {
 
 	//Changes PoI when a PoI portrait is clicked.
 	void changePOI(int poiNumber){
-		if(personsOfInterest[poiNumber].isVisible()){
+		//Sprint 1 change POI code.
+		/*if(personsOfInterest[poiNumber].isVisible()){
 			nameLabel.text = personsOfInterest[poiNumber].getElementName();
 			descriptionLabel.text = personsOfInterest[poiNumber].getDescription();
 		}
 		else {
 			nameLabel.text = emptyName; 
 			descriptionLabel.text = emptyName;
+		}*/
+		//Sprint 2 change POI code.
+		if (personsOfInterest [poiNumber].isVisible ()) {
+			descriptionLabel.text = personsOfInterest[poiNumber].getDescription();
 		}
+		else {
+			descriptionLabel.text = emptyName;
+		}
+		poiPortrait.sprite2D = personsOfInterest[poiNumber].getProfileImage();
+		panelNameLabel.text = personsOfInterest [poiNumber].getElementName ();
 	}
 
 	//Changes object/weapon being viewed when portrait is clicked.
@@ -154,8 +168,9 @@ public class journal : MonoBehaviour {
 		}*/
 	}
 
-	//Initialize PoI view.
-	public void initPoIView(){
+	//Initialize PoI view. 
+	//Code for sprint 1 journal.
+	/*public void initPoIView(){
 		//Add buttons to poi button list and put them in UI event listener.
 		foreach (Transform child in poiGrid.transform){
 			UIEventListener.Get(child.gameObject).onClick += this.onClick;
@@ -170,6 +185,26 @@ public class journal : MonoBehaviour {
 				poiButtonList[i].gameObject.GetComponent<UI2DSprite>().sprite2D = emptyPortrait;
 			}
 		}
+	}*/
+	//Code for sprint 2 journal.
+	public void initPoIView(){
+		//Add buttons to poi button list and put them in UI event listener.
+		foreach (Transform child in poiButtonGrid.transform){
+			UIEventListener.Get(child.gameObject).onClick += this.onClick;
+			poiButtonList.Add(child.gameObject);
+		}
+		//Put suspect names on poi button labels.
+		for (int i = 0; i < personsOfInterest.Count; i++) {
+			if(personsOfInterest[i] != null){
+				poiButtonList[i].gameObject.GetComponentInChildren<UILabel>().text = personsOfInterest[i].getElementName();
+			}
+			else {
+				poiButtonList[i].gameObject.GetComponentInChildren<UILabel>().text = emptyName;
+			}
+		}
+
+		//Load first POI
+		changePOI (0);
 	}
 
 	//Initialize obj view.
@@ -185,5 +220,24 @@ public class journal : MonoBehaviour {
 	void clearLabels(){
 		nameLabel.text = "";
 		descriptionLabel.text = "";
+	}
+
+	IEnumerator UpdateTime(){
+		while (true) {
+			DateTime currentTime = System.DateTime.Now;
+			timeLabel.text = currentTime.ToString("HH:mm");
+			timeLabel.text += "//";
+			yield return new WaitForSeconds(0.2f);
+		}
+	}
+
+	public void updateKnowledge(DictEntry postState){
+		//A stub because i don't know what this is.
+	}
+
+	public Dictionary getKnowledge(){
+		//A stub because I dont' know what this is.
+		Dictionary pk = new Dictionary();
+		return pk;
 	}
 }

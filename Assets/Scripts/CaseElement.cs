@@ -13,6 +13,7 @@ public abstract class CaseElement : MonoBehaviour {
 	private GameObject conversation;//The associated dialogue when a case element is clicked
 	public bool visible=false;			//Is the element visible in the journal?
 
+	public string defaultIcon = "Walk_Icon";		//The standard mouse icon when not hovering over an object
 
 	//Setters for all Case Element fields
 	public void setElementName(string someName){
@@ -23,6 +24,9 @@ public abstract class CaseElement : MonoBehaviour {
 		description = someDesc;
 	}
 
+	public void OnMouseExit(){
+		GameManager.Instance.updateMouseIcon (defaultIcon);
+	}
 
 	public void setProfileImage(Sprite someImage){
 		profileImage = someImage;

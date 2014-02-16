@@ -8,11 +8,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
+  - 212: {fileID: 21200000}
   - 61: {fileID: 6100000}
-  m_Layer: 0
-  m_Name: NPC1
+  m_Layer: 10
+  m_Name: NinaWalker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.53999996, y: -2.4000001, z: 200}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.50206757, y: -3.91186523, z: 0}
+  m_LocalScale: {x: .773799002, y: .773798406, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!61 &6100000
@@ -38,8 +38,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 1.587304, y: 5.41710043}
-  m_Center: {x: -.14414978, y: -.0314495564}
+  m_Size: {x: 1.64999998, y: 6.1500001}
+  m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,29 +51,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e55abf860691c541a849b33c21c6089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: Peijun Shi
-  description: 'Mrs. Shi is a well known shopkeeper of the Community Housing main
-    plaza market, and has maintained her stall (tent?) for more than 30 years now. '
-  profileImage: {fileID: 21300000, guid: 5966b3b796970448caf08c4e7987902e, type: 3}
-  guilt: 1
-  location: 2
-  visible: 1
+  elementName: Nina Walker
+  description: Nina is a member of the YAP. A successful young teenager.
+  profileImage: {fileID: 21300000, guid: 49d23c920db634c9c8c676eba195dcf1, type: 3}
+  guilt: 2
+  location: 6
+  visible: 0
+  defaultIcon: Walk_Icon
   conversationObj: {fileID: 0}
   playerObj: {fileID: 0}
   box: {fileID: 6100000}
-  weaponProficiency: 3
-  highClass: 0
-  alibi:
-  - 'I''m glad you asked! '
-  - Belly
-  - 'I''m glad you asked! '
-  - Belly
-  - 'I''m glad you asked! '
-  - Finn
+  weaponProficiency: 6
+  highClass: 1
+  alibi: Gym
   scene: scene1
-  personalSentence: 'I''m glad you asked! '
-  convo: I'm glad you asked!  I was in the Belly.
+  personalSentence: 
+  convo: 
   convoBubble: {fileID: 0}
+  npcKnowledge: {fileID: 0}
+  mouseOverIcon: Speech_Icon
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -92,10 +88,10 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 2
-  m_SortingOrder: 2
-  m_SortingLayerID: 2971093031
-  m_Sprite: {fileID: 21300000, guid: 78422715a9353441bafee92e5c7914d8, type: 3}
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_SortingLayerID: 1982072587
+  m_Sprite: {fileID: 21300000, guid: 9a8a747252062430b88f5cb0739aa072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
