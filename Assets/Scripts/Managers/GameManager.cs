@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
 			return instance;
 		}
 	}
-
+	
 	// Sets instance to null when the application quits
 	public void OnApplicationQuit() {
 		instance = null;
@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void OnGUI() {
-		GUI.TextArea(new Rect(1, 1, 100, 20), _currentState.ToString());
+		//GUI.TextArea(new Rect(1, 1, 100, 20), _currentState.ToString());
 
 		//Handle mouse updates here
 
@@ -241,6 +241,8 @@ public class GameManager : MonoBehaviour {
 		weaponList.Add(Resources.Load<CaseObject>("VSs"));
 		generator = new CaseGenerator ();
 		generateCase ();
+
+		gameObject.AddComponent ("DialogueGUI");
 
 	}
 

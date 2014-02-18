@@ -39,12 +39,14 @@ public class NPC : CaseElement {
 	//enable conversation object if left mouse button is clicked.
 	public void OnMouseDown(){
 		if(Input.GetMouseButton(0)){
+			Debug.Log ("YOU CLICK");
 			//conversationObj.renderer.enabled = true;
 			//conversationObj.collider2D.enabled = true;
 			GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
 
-			convoBubble.GetComponentInChildren<UILabel>().text = convo;
-			convoBubble.GetComponentInChildren<UI2DSprite>().sprite2D = this.getProfileImage();
+			Dialoguer.StartDialogue(1);
+			//convoBubble.GetComponentInChildren<UILabel>().text = convo;
+			//convoBubble.GetComponentInChildren<UI2DSprite>().sprite2D = this.getProfileImage();
 		}
 	}
 	//switch the displaying order of the npc. 

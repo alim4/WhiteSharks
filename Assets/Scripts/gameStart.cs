@@ -42,6 +42,7 @@ public class gameStart : MonoBehaviour {
 	
 	private void startGame() {
 		Debug.Log("Starting game");
+		Dialoguer.Initialize ();
 
 		// Initialize various managers for the game
 		// Singleton pattern

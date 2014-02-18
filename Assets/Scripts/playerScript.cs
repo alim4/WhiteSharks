@@ -31,6 +31,7 @@ public class playerScript : CaseElement {
 		anim = GetComponent<Animator>();
 		canWalk = true;
 	}
+
 	void FixedUpdate(){	
 		if(canWalk){
 			float distance;
@@ -48,9 +49,17 @@ public class playerScript : CaseElement {
 				layerMask = ~layerMask;
 				if (Physics2D.Linecast(transform.position, targetPosition,layerMask)){	
 					if(objectOnWay(targetPosition)){
-						Vector2 toPoint = FindClosestPoint(targetPosition).transform.position;
-						distance = Vector2.Distance (transform.position, toPoint);
-						transform.position = Vector2.Lerp (transform.position, toPoint,Time.deltaTime* (maxSpeed/distance));
+						GameObject closestPoint = FindClosestPoint(targetPosition);
+						if (closestPoint == null)
+						{
+							Debug.LogError ("FindClosestPoint returning null! Please fix");
+						}
+						else
+						{
+							Vector2 toPoint = FindClosestPoint(targetPosition).transform.position;
+							distance = Vector2.Distance (transform.position, toPoint);
+							transform.position = Vector2.Lerp (transform.position, toPoint,Time.deltaTime* (maxSpeed/distance));
+						}
 					}
 				}
 				//else go straight to that location
@@ -100,9 +109,16 @@ public class playerScript : CaseElement {
 				}
 			}
 		}
-		Debug.Log ("asds");
 
-		Debug.Log ("closet point: " + closest.transform.position);
+		// Hacky work around to null error. Should improve
+		if (points.Length == 0 || points == null)
+		{
+			closest = GameObject.Find("player(Clone)");
+		}
+
+//		Debug.Log ("asds");
+//
+//		Debug.Log ("closet point: " + closest.transform.position);
 		return closest;
 	}
 	//change scene when collide with door
@@ -122,7 +138,7 @@ public class playerScript : CaseElement {
 			GameManager.Instance.currentRoomIndex = tempIndex;
 			GameManager.Instance.SetNextX(doorObj.x);
 			GameManager.Instance.SetNextY(doorObj.y);
-			DestoryPlayer();
+			DestroyPlayer();
 			Application.LoadLevel (temp);
 		}
 	}
@@ -136,7 +152,7 @@ public class playerScript : CaseElement {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
-	public void DestoryPlayer(){
+	public void DestroyPlayer(){
 		Destroy (Scene.player);
 	}
 }
