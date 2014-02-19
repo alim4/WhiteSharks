@@ -25,8 +25,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.50206757, y: -3.91186523, z: 0}
-  m_LocalScale: {x: .773799002, y: .773798406, z: 1}
+  m_LocalPosition: {x: 0, y: -2.04999995, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!61 &6100000
@@ -55,15 +55,15 @@ MonoBehaviour:
   description: Nina is a member of the YAP. A successful young teenager.
   profileImage: {fileID: 21300000, guid: 49d23c920db634c9c8c676eba195dcf1, type: 3}
   guilt: 2
-  location: 6
+  location: 2
   visible: 0
   defaultIcon: Walk_Icon
   conversationObj: {fileID: 0}
   playerObj: {fileID: 0}
   box: {fileID: 6100000}
-  weaponProficiency: 6
+  weaponProficiency: 2
   highClass: 1
-  alibi: Gym
+  alibi: F
   scene: scene1
   personalSentence: 
   convo: 

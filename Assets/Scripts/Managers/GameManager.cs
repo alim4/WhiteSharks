@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	public static List<NPC> witnessList = new List<NPC>();
 	public static List<CaseObject> weaponList= new List<CaseObject>();
 	public ArrayList roomIDList;
+	public string[] rooms;
 	public int currentRoomIndex;
 	private string currentMainCharacter;
 	public CaseGenerator generator;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour {
 			return instance;
 		}
 	}
-	
+
 	// Sets instance to null when the application quits
 	public void OnApplicationQuit() {
 		instance = null;
@@ -217,14 +218,21 @@ public class GameManager : MonoBehaviour {
 		//For a changing cursor, load in all of its sprites into the list
 		setIcons ();
 
+		// Used for Dialoguer components
+		Debug.Log ("Persocets, Adderall, Ecstasy, PMW");
+		DialogueGUI dGUI = gameObject.AddComponent<DialogueGUI> ();
+		dGUI.setSkin(Resources.Load ("OldSchool") as GUISkin);
+		dGUI.setTexture(Resources.Load ("DialogueBoxDiagonalLines") as Texture2D);
+
 
 		roomIDList = new ArrayList ();
+		rooms = new string[5];
+		rooms[2] = "bar";
+		rooms[3] = "bellyRoom";
 		roomIDList.Add("stage1");
 		roomIDList.Add("stage2");
 		roomIDList.Add("stage3");
 		roomIDList.Add("stage4");
-		roomIDList.Add("stage5");
-		roomIDList.Add("stage6");
 		roomList.Add ("Gym");
 		roomList.Add ("Cafe");
 		roomList.Add ("Office");
@@ -241,9 +249,6 @@ public class GameManager : MonoBehaviour {
 		weaponList.Add(Resources.Load<CaseObject>("VSs"));
 		generator = new CaseGenerator ();
 		generateCase ();
-
-		gameObject.AddComponent ("DialogueGUI");
-
 	}
 
 	public static List<NPC> getSceneNPCList(int sceneID){ 
@@ -253,7 +258,7 @@ public class GameManager : MonoBehaviour {
 				//Debug.Log("Match found");
 				temp.Add(n);
 			}
-		}
+				}
 		return temp;
 	}
 

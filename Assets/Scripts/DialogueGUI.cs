@@ -7,10 +7,10 @@ public class DialogueGUI : MonoBehaviour {
 	public GUISkin skin;
 	public Texture2D diagonalLines;
 	
-	public AudioSource audioText;
-	public AudioSource audioTextEnd;
-	public AudioSource audioGood;
-	public AudioSource audioBad;
+//	public AudioSource audioText;
+//	public AudioSource audioTextEnd;
+//	public AudioSource audioGood;
+//	public AudioSource audioBad;
 	
 	private bool _dialogue;
 	private bool _ending;
@@ -65,17 +65,17 @@ public class DialogueGUI : MonoBehaviour {
 					Dialoguer.ContinueDialogue(0);
 				}else{
 					_windowCurrentText = _windowTargetText;
-					audioTextEnd.Play();
+					//audioTextEnd.Play();
 				}
 			}
 		}else{
 			if(Input.GetKeyDown(KeyCode.DownArrow)){
 				_currentChoice = (int)Mathf.Repeat(_currentChoice + 1, _branchedTextChoices.Length);
-				audioText.Play();
+				//audioText.Play();
 			}
 			if(Input.GetKeyDown(KeyCode.UpArrow)){
 				_currentChoice = (int)Mathf.Repeat(_currentChoice - 1, _branchedTextChoices.Length);
-				audioText.Play();
+				//audioText.Play();
 			}
 			if(Input.GetMouseButtonDown(0) && _windowCurrentText != _windowTargetText){
 				_windowCurrentText = _windowTargetText;
@@ -85,10 +85,20 @@ public class DialogueGUI : MonoBehaviour {
 					Dialoguer.ContinueDialogue(_currentChoice);
 				}else{
 					_windowCurrentText = _windowTargetText;
-					audioTextEnd.Play();
+					//audioTextEnd.Play();
 				}
 			}
 		}
+	}
+
+	public void setSkin(GUISkin skin)
+	{
+		this.skin = skin;
+	}
+
+	public void setTexture(Texture2D diagonalLines)
+	{
+		this.diagonalLines = diagonalLines;
 	}
 	
 	#region Dialoguer
@@ -107,7 +117,7 @@ public class DialogueGUI : MonoBehaviour {
 	
 	private void onDialogueEndedHandler(){
 		_ending = true;
-		audioTextEnd.Play();
+		//audioTextEnd.Play();
 	}
 	
 	private void onDialogueInstantlyEndedHandler(){
@@ -162,9 +172,9 @@ public class DialogueGUI : MonoBehaviour {
 		GUI.depth = 10;
 		
 		float rectX = (!_usingPositionRect) ? Screen.width*0.5f : _positionRect.x;
-		float rectY = (!_usingPositionRect) ? Screen.height - 200 : _positionRect.y;
-		float rectWidth = (!_usingPositionRect) ? 512 : _positionRect.width;
-		float rectHeight = (!_usingPositionRect) ? 190 : _positionRect.height;
+		float rectY = (!_usingPositionRect) ? Screen.height - 100 : _positionRect.y;
+		float rectWidth = (!_usingPositionRect) ? Screen.width*0.85f : _positionRect.width;
+		float rectHeight = (!_usingPositionRect) ? 180 : _positionRect.height;
 		
 		Rect dialogueBoxRect = centerRect(new Rect(rectX, rectY, rectWidth*_windowTweenValue, rectHeight*_windowTweenValue));
 		
@@ -180,7 +190,7 @@ public class DialogueGUI : MonoBehaviour {
 		}else{
 			drawDialogueBox(dialogueBoxRect);
 		}
-		
+
 		// Draw name box
 		if(_nameText != string.Empty){
 			Rect nameBoxRect = new Rect(dialogueBoxRect.x, dialogueBoxRect.y - 60, 150 * _windowTweenValue, 50 * _windowTweenValue);
@@ -196,12 +206,12 @@ public class DialogueGUI : MonoBehaviour {
 		
 		if(_isBranchedText && _windowCurrentText == _windowTargetText && _branchedTextChoices != null){
 			for(int i=0; i<_branchedTextChoices.Length; i+=1){
-				float choiceRectY = (dialogueBoxRect.yMax - (((38) * _branchedTextChoices.Length) - (38*i))) - 20;
+				float choiceRectY = (dialogueBoxRect.yMax - (((20) * _branchedTextChoices.Length) - (20*i)) - 18);
 				Rect choiceRect = new Rect(dialogueBoxRect.x + 60, choiceRectY, dialogueBoxRect.width - 80, 38);
 				drawShadowedText(choiceRect, _branchedTextChoices[i]);
 				if(choiceRect.Contains(new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y))){
 					if(_currentChoice != i){
-						audioText.Play();
+						//audioText.Play();
 						_currentChoice = i;
 					}
 					if(Input.GetMouseButtonDown(0)){
@@ -222,8 +232,6 @@ public class DialogueGUI : MonoBehaviour {
 	}
 	
 	private void drawDialogueBox(Rect rect, Color color){
-		
-		
 		// Background gradient
 		GUI.color = color;
 		GUI.Box(rect, string.Empty, GUI.skin.GetStyle("box_background"));
@@ -254,9 +262,9 @@ public class DialogueGUI : MonoBehaviour {
 	
 	private void playOldRpgSound(string metadata){
 		if(metadata == "good"){
-			audioGood.Play();
+			//audioGood.Play();
 		}else if(metadata == "bad"){
-			audioBad.Play();
+			//audioBad.Play();
 		}
 	}
 	
@@ -346,7 +354,7 @@ public class DialogueGUI : MonoBehaviour {
 			}
 		}
 		
-		audioText.Play();
+		//audioText.Play();
 	}
 	#endregion
 }

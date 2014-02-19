@@ -39,15 +39,30 @@ public class NPC : CaseElement {
 	//enable conversation object if left mouse button is clicked.
 	public void OnMouseDown(){
 		if(Input.GetMouseButton(0)){
-			Debug.Log ("YOU CLICK");
 			//conversationObj.renderer.enabled = true;
 			//conversationObj.collider2D.enabled = true;
-			GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
+			//GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
 
-			Dialoguer.StartDialogue(1);
+			// Temp
+			Debug.Log ("NPC name: " + this.gameObject.name);
+			Dialoguer.StartDialogue(getDialogue());
 			//convoBubble.GetComponentInChildren<UILabel>().text = convo;
 			//convoBubble.GetComponentInChildren<UI2DSprite>().sprite2D = this.getProfileImage();
 		}
+	}
+
+	// gets the int corresponding to the Dialoguer ID
+	public int getDialogue()
+	{
+		string npcName = this.gameObject.name;
+		if (npcName == "LiamOShea") return 4;
+		else if (npcName == "NinaWalker") return 5;
+		else if (npcName == "JoshSusach") return 6;
+		else if (npcName == "NoelAlt") return 7;
+		else if (npcName == "PeijunShi") return 8;
+		else if (npcName == "CarlosFranco") return 9;
+
+		return -1;
 	}
 	//switch the displaying order of the npc. 
 	void Update () {

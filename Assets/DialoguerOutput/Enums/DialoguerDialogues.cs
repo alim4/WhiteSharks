@@ -3,4 +3,8 @@ public enum DialoguerDialogues{
 	Generic = 0,
 	OldSchoolRPG = 1,
 	NextGen = 2,
+	test = 3,
+	LiamOShea = 4,
+	NinaWalker = 5,
+	JoshSusach = 6,
 }

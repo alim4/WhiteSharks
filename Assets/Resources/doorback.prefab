@@ -8,11 +8,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
   - 212: {fileID: 21200000}
   - 61: {fileID: 6100000}
+  - 50: {fileID: 5000000}
+  - 114: {fileID: 11400000}
   m_Layer: 10
-  m_Name: LiamOShea
+  m_Name: doorback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,10 +26,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.04999995, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.582715273, y: -.334120095, z: 0}
+  m_LocalScale: {x: .0208553113, y: .673625946, z: .949355006}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!50 &5000000
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -38,7 +54,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 1.64999998, y: 6.1500001}
+  m_Size: {x: 17.5500011, y: 4.67999983}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -48,28 +64,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e55abf860691c541a849b33c21c6089, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f67cbf8240874835a8a9a1e29d5690a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: Liam O'Shea
-  description: Liam is a guard at the Fin.
-  profileImage: {fileID: 21300000, guid: 8b98b68a3e5434fde8a6cef5f4ee29ca, type: 3}
-  guilt: 2
-  location: 2
-  visible: 0
-  defaultIcon: Walk_Icon
-  conversationObj: {fileID: 0}
-  playerObj: {fileID: 0}
-  box: {fileID: 6100000}
-  weaponProficiency: 2
-  highClass: 1
-  alibi: F
-  scene: scene1
-  personalSentence: 
-  convo: 
-  convoBubble: {fileID: 0}
-  npcKnowledge: {fileID: 0}
-  mouseOverIcon: Speech_Icon
+  id: 0
+  x: -6.44067192
+  y: -5.890769
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -88,10 +88,10 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_SortingLayerID: 1982072587
-  m_Sprite: {fileID: 21300000, guid: 3401e01ddcafe4131af79f39bb485590, type: 3}
+  m_SortingLayerID: 2971093031
+  m_Sprite: {fileID: 21300000, guid: e96794755b5845643a0fd96f68744c05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
