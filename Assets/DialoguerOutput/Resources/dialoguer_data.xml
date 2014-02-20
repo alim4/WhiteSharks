@@ -2347,7 +2347,7 @@ the Dialoguer system!</text>
       <startPage>21</startPage>
       <scrollPosition>
         <x>0</x>
-        <y>16.0009766</y>
+        <y>1236.07483</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -2408,8 +2408,8 @@ the Dialoguer system!</text>
           </outs>
           <advanced>false</advanced>
           <metadata />
-          <text>What's your next line of questioning.</text>
-          <name />
+          <text />
+          <name>What's your next line of questioning?</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -2497,6 +2497,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>3</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>384</x>
             <y>1458</y>
@@ -2508,8 +2509,8 @@ the Dialoguer system!</text>
           </outs>
           <advanced>false</advanced>
           <metadata />
-          <text>Depends on who.</text>
-          <name />
+          <text />
+          <name>Depends on who.</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -2549,8 +2550,8 @@ the Dialoguer system!</text>
           <id>4</id>
           <type>TextPhase</type>
           <position>
-            <x>379.007324</x>
-            <y>1784</y>
+            <x>382.007324</x>
+            <y>1802</y>
           </position>
           <outs>
             <int>3</int>
@@ -2850,7 +2851,7 @@ the Dialoguer system!</text>
           <variableId>3</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>90</y>
+            <y>110</y>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
@@ -3571,8 +3572,8 @@ the Dialoguer system!</text>
           <id>27</id>
           <type>TextPhase</type>
           <position>
-            <x>99.9997559</x>
-            <y>1311.06226</y>
+            <x>314.999756</x>
+            <y>1321.06226</y>
           </position>
           <outs>
             <int xsi:nil="true" />
@@ -3828,7 +3829,7 @@ the Dialoguer system!</text>
           <variableId>1</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>0</y>
+            <y>47</y>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>LessThan</variableGetEquation>
@@ -4397,8 +4398,8 @@ the Dialoguer system!</text>
       <name>Nina Walker</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>0</x>
-        <y>0</y>
+        <x>880.0598</x>
+        <y>1448.0896</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -4627,6 +4628,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>5</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>12</x>
             <y>495</y>
@@ -4642,8 +4644,8 @@ the Dialoguer system!</text>
           </outs>
           <advanced>false</advanced>
           <metadata />
-          <text>What kind of questioning are we dealing with now?</text>
-          <name />
+          <text />
+          <name>What kind of questioning are we dealing with now?</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -4948,6 +4950,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>12</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>396.01</x>
             <y>981.0427</y>
@@ -4960,7 +4963,7 @@ the Dialoguer system!</text>
           <advanced>false</advanced>
           <metadata />
           <text>Depends on who.</text>
-          <name />
+          <name>Depends on who.</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -6022,8 +6025,8 @@ the Dialoguer system!</text>
           <id>36</id>
           <type>TextPhase</type>
           <position>
-            <x>407.1419</x>
-            <y>1319.05554</y>
+            <x>522.1419</x>
+            <y>1409.05554</y>
           </position>
           <outs>
             <int>12</int>
@@ -6088,8 +6091,8 @@ the Dialoguer system!</text>
       <name>Josh Susach</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>0</x>
-        <y>880.0537</y>
+        <x>172.01416</x>
+        <y>1020.06567</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -6318,6 +6321,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>5</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>49</x>
             <y>506.006836</y>
@@ -6331,10 +6335,10 @@ the Dialoguer system!</text>
             <int xsi:nil="true" />
             <int>7</int>
           </outs>
-          <advanced>false</advanced>
+          <advanced>true</advanced>
           <metadata />
-          <text>What's your next line of questioning?</text>
-          <name />
+          <text />
+          <name>What's your next line of questioning?</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -6639,6 +6643,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>12</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>388</x>
             <y>1010.02405</y>
@@ -6648,10 +6653,10 @@ the Dialoguer system!</text>
             <int>24</int>
             <int>5</int>
           </outs>
-          <advanced>false</advanced>
+          <advanced>true</advanced>
           <metadata />
-          <text>Depends on who?</text>
-          <name />
+          <text />
+          <name>Depends on who?</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -6691,8 +6696,8 @@ the Dialoguer system!</text>
           <id>13</id>
           <type>TextPhase</type>
           <position>
-            <x>371.006836</x>
-            <y>1336.02539</y>
+            <x>459.006836</x>
+            <y>1434.02539</y>
           </position>
           <outs>
             <int>12</int>
@@ -6770,7 +6775,7 @@ the Dialoguer system!</text>
           <variableId>1</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>0</y>
+            <y>110</y>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
@@ -7728,8 +7733,8 @@ the Dialoguer system!</text>
       <name>Noel Alt</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>1144.06982</x>
-        <y>1222.074</y>
+        <x>18.0004883</x>
+        <y>740.045166</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -7770,7 +7775,7 @@ the Dialoguer system!</text>
           <variableId>4</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>0</y>
+            <y>47</y>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>LessThan</variableGetEquation>
@@ -7958,6 +7963,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>5</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>10</x>
             <y>509.987061</y>
@@ -7970,10 +7976,10 @@ the Dialoguer system!</text>
             <int>24</int>
             <int>6</int>
           </outs>
-          <advanced>false</advanced>
+          <advanced>true</advanced>
           <metadata />
-          <text>What's your next question?</text>
-          <name />
+          <text />
+          <name>What's your next question?</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -8054,6 +8060,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>7</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>381</x>
             <y>510.9934</y>
@@ -8064,10 +8071,10 @@ the Dialoguer system!</text>
             <int>30</int>
             <int>5</int>
           </outs>
-          <advanced>false</advanced>
+          <advanced>true</advanced>
           <metadata />
-          <text>Depends on who.</text>
-          <name />
+          <text />
+          <name>Depends on who.</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -8197,8 +8204,8 @@ the Dialoguer system!</text>
           <id>10</id>
           <type>TextPhase</type>
           <position>
-            <x>386.0161</x>
-            <y>906.993652</y>
+            <x>539.0161</x>
+            <y>1011.99365</y>
           </position>
           <outs>
             <int>7</int>
@@ -9190,8 +9197,8 @@ the Dialoguer system!</text>
       <name>Peijun Shi</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>1222.06543</x>
-        <y>946.0553</y>
+        <x>108.006592</x>
+        <y>488.026733</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -9420,6 +9427,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>5</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>10</x>
             <y>512</y>
@@ -9434,8 +9442,8 @@ the Dialoguer system!</text>
           </outs>
           <advanced>false</advanced>
           <metadata />
-          <text>What's your next question?</text>
-          <name />
+          <text />
+          <name>What's your next question?</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -9516,6 +9524,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>7</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>350</x>
             <y>505.004639</y>
@@ -9528,8 +9537,8 @@ the Dialoguer system!</text>
           </outs>
           <advanced>false</advanced>
           <metadata />
-          <text>Depends on who.</text>
-          <name />
+          <text />
+          <name>Depends on who.</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -9570,8 +9579,8 @@ the Dialoguer system!</text>
           <id>8</id>
           <type>TextPhase</type>
           <position>
-            <x>346.0039</x>
-            <y>900.004639</y>
+            <x>499.0039</x>
+            <y>901.004639</y>
           </position>
           <outs>
             <int>10</int>
@@ -10652,8 +10661,8 @@ the Dialoguer system!</text>
       <name>Carlos Franco</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>1362.09473</x>
-        <y>960.0586</y>
+        <x>14.0014648</x>
+        <y>402.024536</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -10694,7 +10703,7 @@ the Dialoguer system!</text>
           <variableId>6</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>33</y>
+            <y>47</y>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>GreaterThan</variableGetEquation>
@@ -10738,7 +10747,7 @@ the Dialoguer system!</text>
           <variableId>6</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>33</y>
+            <y>0</y>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>LessThan</variableGetEquation>
@@ -10882,6 +10891,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>5</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>16</x>
             <y>486</y>
@@ -10894,10 +10904,10 @@ the Dialoguer system!</text>
             <int>25</int>
             <int>6</int>
           </outs>
-          <advanced>false</advanced>
+          <advanced>true</advanced>
           <metadata />
-          <text>What's your next question?</text>
-          <name />
+          <text>What do you want.</text>
+          <name>What's your next question?</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -10940,8 +10950,8 @@ the Dialoguer system!</text>
           <id>6</id>
           <type>EndPhase</type>
           <position>
-            <x>231</x>
-            <y>1005</y>
+            <x>330</x>
+            <y>1015</y>
           </position>
           <outs />
           <advanced>false</advanced>
@@ -10978,6 +10988,7 @@ the Dialoguer system!</text>
         <DialogueEditorPhaseObject>
           <id>7</id>
           <type>BranchedTextPhase</type>
+          <theme />
           <position>
             <x>349</x>
             <y>489.972778</y>
@@ -10990,8 +11001,8 @@ the Dialoguer system!</text>
           </outs>
           <advanced>false</advanced>
           <metadata />
-          <text>Depends on who?</text>
-          <name />
+          <text />
+          <name>Who do you wanna know about?</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -11032,8 +11043,8 @@ the Dialoguer system!</text>
           <id>8</id>
           <type>TextPhase</type>
           <position>
-            <x>350.9983</x>
-            <y>871</y>
+            <x>442.9983</x>
+            <y>895</y>
           </position>
           <outs>
             <int>7</int>

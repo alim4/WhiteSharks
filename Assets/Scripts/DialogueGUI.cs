@@ -173,7 +173,7 @@ public class DialogueGUI : MonoBehaviour {
 		
 		float rectX = (!_usingPositionRect) ? Screen.width*0.5f : _positionRect.x;
 		float rectY = (!_usingPositionRect) ? Screen.height - 100 : _positionRect.y;
-		float rectWidth = (!_usingPositionRect) ? Screen.width*0.85f : _positionRect.width;
+		float rectWidth = (!_usingPositionRect) ? Screen.width*0.95f : _positionRect.width;
 		float rectHeight = (!_usingPositionRect) ? 180 : _positionRect.height;
 		
 		Rect dialogueBoxRect = centerRect(new Rect(rectX, rectY, rectWidth*_windowTweenValue, rectHeight*_windowTweenValue));
@@ -193,7 +193,7 @@ public class DialogueGUI : MonoBehaviour {
 
 		// Draw name box
 		if(_nameText != string.Empty){
-			Rect nameBoxRect = new Rect(dialogueBoxRect.x, dialogueBoxRect.y - 60, 150 * _windowTweenValue, 50 * _windowTweenValue);
+			Rect nameBoxRect = new Rect(dialogueBoxRect.x, dialogueBoxRect.y - 30, Screen.width*0.75f * _windowTweenValue, 35 * _windowTweenValue);
 			nameBoxRect.width = Mathf.Clamp(nameBoxRect.width, 32, 2000);
 			nameBoxRect.height = Mathf.Clamp(nameBoxRect.height, 32, 2000);
 			drawDialogueBox(nameBoxRect);
@@ -206,7 +206,10 @@ public class DialogueGUI : MonoBehaviour {
 		
 		if(_isBranchedText && _windowCurrentText == _windowTargetText && _branchedTextChoices != null){
 			for(int i=0; i<_branchedTextChoices.Length; i+=1){
-				float choiceRectY = (dialogueBoxRect.yMax - (((20) * _branchedTextChoices.Length) - (20*i)) - 18);
+				float spacing = 22f;
+				float choiceRectY = dialogueBoxRect.yMin + spacing*i + 14;
+				//float choiceRectY = (dialogueBoxRect.yMax - (((spacing) * _branchedTextChoices.Length) - (spacing*i)) - 18);
+				//float choiceRectY = dialogueBoxRect.yMax - spacing*i * _branchedTextChoices.Length;
 				Rect choiceRect = new Rect(dialogueBoxRect.x + 60, choiceRectY, dialogueBoxRect.width - 80, 38);
 				drawShadowedText(choiceRect, _branchedTextChoices[i]);
 				if(choiceRect.Contains(new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y))){
@@ -220,7 +223,7 @@ public class DialogueGUI : MonoBehaviour {
 					}
 				}
 				if(_currentChoice == i){
-					GUI.Box(new Rect(choiceRect.x - 64, choiceRect.y, 64, 64), string.Empty, GUI.skin.GetStyle("box_cursor"));
+					GUI.Box(new Rect(choiceRect.x - 64, choiceRect.y - 8, 64, 64), string.Empty, GUI.skin.GetStyle("box_cursor"));
 				}
 			}
 		}
