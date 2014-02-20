@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour {
 
 		//Handle mouse updates here
 
-		GUI.DrawTexture (new Rect (Input.mousePosition.x - cursorSize / 2 + 1, (Screen.height - Input.mousePosition.y) - cursorSize / 2 + 1,
+		GUI.DrawTexture (new Rect (Input.mousePosition.x - cursorSize / 16, (Screen.height - Input.mousePosition.y) - cursorSize / 16,
 		                      cursorSize, cursorSize), currMouse);
 
 	}
