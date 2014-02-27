@@ -399,6 +399,7 @@ MonoBehaviour:
   id: 0
   x: -6.44067192
   y: -5.890769
+  mouseOverIcon: Door_Icon
 --- !u!50 &936188415
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -586,7 +587,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.34659553
+  orthographic size: 4.06522846
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -602,7 +603,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1123250252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.56821585, y: -2.28386569, z: -10}
+  m_LocalPosition: {x: 2.32426834, y: -2.95626998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -710,6 +711,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleX: .368005097
   scaleY: .358005792
+  maxY: -1.89999998
+  minY: -3.20000005
+  minScale: .360000014
+  maxScale: .600000024
+  id: 2
 --- !u!1 &1650131400
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +776,7 @@ MonoBehaviour:
   id: 1
   x: 13.9816799
   y: -7.9479661
+  mouseOverIcon: Door_Icon
 --- !u!50 &1872492337
 Rigidbody2D:
   m_ObjectHideFlags: 0

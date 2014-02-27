@@ -45,7 +45,10 @@ public class CaseGenerator : Object {
 
 			foreach(NPC n in GameManager.npcList){
 				npcs.Add(n);
+				GameManager.Instance.addEntry(new DictEntry(n.getEnumName(), n.getGuilt(), n.getWeaponProf(), n.getAlibi(), n.getTrust()));
 			}
+
+
 			foreach (string r in GameManager.roomList) {
 				rooms.Add(r);	
 			}
@@ -60,6 +63,7 @@ public class CaseGenerator : Object {
 		categories.Remove (Category.PersonalItem);
 		categories.Remove (Category.Miscellaneous);
 		categories.Remove (Category.unrelated);
+
 		}
 
 
@@ -74,9 +78,13 @@ public class CaseGenerator : Object {
 		theCase = new Case ();
 		//Debug.LogError ("Generating case");
 		npcs.Shuffle (rng);
+		//Debug.Log("NPC list count in case generator: " + npcs.Count );
 		suspectA = npcs [0];
 		suspectB = npcs [1];
 		suspectC = npcs [2];
+
+
+
 		//Debug.LogError ("Suspects are: " + suspectA +", " + suspectB + " and " + suspectC );
 
 		categories.Shuffle (rng);
@@ -84,6 +92,7 @@ public class CaseGenerator : Object {
 		categoryB = categories [1];
 		categoryC = categories [2];
 
+		//Debug.Log ("SuspectA: " + suspectA + " SuspectB: " + suspectB +" SuspectC: " + suspectC);
 		suspectA.weaponProficiency = categoryA;
 		suspectB.weaponProficiency = categoryB;
 		suspectC.weaponProficiency = categoryC;
@@ -92,26 +101,41 @@ public class CaseGenerator : Object {
 		//Debug.LogError ("Categories are: " + categoryA +" and " + categoryB );
 
 		foreach (CaseObject w in weapons){
+			//Debug.LogWarning(w.getElementName());
 			if (w.category.CompareTo(categoryA) == 0){
 				weaponsA.Add(w);
 			}
 		}
-		Debug.LogError ("Made copy of categoryA weapons, size:" + weaponsA.Count + " and it is " + categoryA);
+		//Debug.LogError ("Made copy of categoryA weapons, size:" + weaponsA.Count + " and it is " + categoryA);
 		foreach (CaseObject w in weapons){
+			//Debug.LogWarning(w.getElementName());
 			if (w.category.CompareTo(categoryB) == 0){
 				weaponsB.Add(w);
+
 			}
 		}
-		Debug.LogError ("Made copy of categoryB weapons, size:" + weaponsB.Count+ " and it is " + categoryB);
+		//Debug.LogError ("Made copy of categoryB weapons, size:" + weaponsB.Count+ " and it is " + categoryB);
 
 		foreach (CaseObject w in weapons){
+			//Debug.LogWarning(w.getElementName());
 			if (w.category.CompareTo(categoryC) == 0){
+
 				weaponsC.Add(w);
+
 			}
 		}
 
-		weaponA = weaponsA [Random.Range (0, weaponsA.Count)];
-		weaponB = weaponsB [Random.Range (0, weaponsB.Count)];
+		//Debug.LogError ("Made copy of categoryC weapons, size:" + weaponsC.Count+ " and it is " + categoryC);
+
+		//activateWeapon (weaponA);
+		//activateWeapon (weaponB);
+
+
+
+		weaponA = weaponsA [Random.Range (0, weaponsA.Count-1)];
+		weaponB = weaponsB [Random.Range (0, weaponsB.Count-1)];
+		weaponC = weaponsC [Random.Range (0, weaponsB.Count-1)];
+
 
 		rooms.Shuffle (rng);
 		roomA = rooms [0];
@@ -126,19 +150,22 @@ public class CaseGenerator : Object {
 		this.activateWeapon (weaponA);
 		this.activateWeapon (weaponB);
 
-		Debug.LogError ("Case generated as:");
-		Debug.LogError ("Guilty :" +suspectA+ " who is proficient with "+suspectA.weaponProficiency +" and was in " + suspectA.alibi);
-		Debug.LogError ("Suspect1 :" +suspectB+ " who is proficient with "+suspectB.weaponProficiency +" and was in " + suspectB.alibi);
-		Debug.LogError ("Suspect2 :" +suspectC+ " who is proficient with "+suspectC.weaponProficiency +" and was in " + suspectC.alibi);
+		//Debug.LogError ("Case generated as:");
+		//Debug.LogError ("Guilty :" +suspectA+ " who is proficient with "+suspectA.weaponProficiency +" and was in " + suspectA.alibi);
+		//Debug.LogError ("Suspect1 :" +suspectB+ " who is proficient with "+suspectB.weaponProficiency +" and was in " + suspectB.alibi);
+		//Debug.LogError ("Suspect2 :" +suspectC+ " who is proficient with "+suspectC.weaponProficiency +" and was in " + suspectC.alibi);
 
-		Debug.LogError(weaponA);
+		//Debug.LogError(weaponA);
 
 		theCase.activeWeapons.Add (weaponA);
 		theCase.activeWeapons.Add (weaponB);
 		theCase.activeWeapons.Add (weaponC);
+		Debug.Log ("wpC "+ weaponC);
 		theCase.setGuilty (suspectA);
 		theCase.setRoom (roomA);
 		theCase.setWeapon (weaponA);
+
+		//GameManager.Instance.printGoal ();
 
 		return theCase;
 	}
@@ -147,6 +174,9 @@ public class CaseGenerator : Object {
 	private NPC makeGuilty(NPC n, string r){
 		n.setGuilt (GuiltLevel.guilty);
 		n.alibi = r;
+		DictEntry newEntry = new DictEntry(n.getEnumName(), n.getGuilt (), n.getWeaponProf(), n.getAlibi(), n.getTrust());
+		//newEntry.printEntry ();
+		GameManager.Instance.updateDict( newEntry);
 		GameManager.guilty = n;
 		return n;
 	}	
@@ -155,15 +185,84 @@ public class CaseGenerator : Object {
 	private NPC makeSuspect(NPC n, string r){
 		n.setGuilt (GuiltLevel.suspect);
 		n.alibi = r;
+		DictEntry newEntry = new DictEntry(n.getEnumName(), n.getGuilt(), n.getWeaponProf(), n.getAlibi(), n.getTrust());
+		//newEntry.printEntry ();
+		GameManager.Instance.updateDict( newEntry);
+
 		return n;
 	}
 
 	private CaseObject activateWeapon(CaseObject o){
 		o.setGuilt (GuiltLevel.guilty);
+		//o.description += " We have information that this weapon was ACTIVE at the time of the murder.";
 		//GameManager.theCase.setWeapon (o);
-		GameManager.weapon = o;
 		return o;
 	}
+
+	public Case demo(){
+		theCase = new Case ();
+
+		suspectA = npcs [0];
+		suspectB = npcs [1];
+		suspectC = npcs [2];
+
+		categoryA = Category.Firearms;
+		categoryB = Category.SharpWeapons;
+		categoryC = Category.BluntWeapons;
+
+		suspectA.weaponProficiency = categoryA;
+		suspectB.weaponProficiency = categoryB;
+		suspectC.weaponProficiency = categoryC;
+		
+		foreach (CaseObject w in weapons){
+			if (w.category.CompareTo(categoryA) == 0){
+				weaponsA.Add(w);
+			}
+		}
+
+		foreach (CaseObject w in weapons){
+			if (w.category.CompareTo(categoryB) == 0){
+				weaponsB.Add(w);
+				
+			}
+		}
+		
+		foreach (CaseObject w in weapons){
+			if (w.category.CompareTo(categoryC) == 0){
+				weaponsC.Add(w);
+				
+			}
+		}
+		
+		weaponA = weaponsA [0];
+		weaponB = weaponsB [0];
+		weaponC = weaponsC [0];
+
+		roomA = rooms [0];
+		roomB = rooms [1];
+		roomC = rooms [2];
+		
+		//Now that we have everything randomized, we set up responsibilities (guilty)
+		this.makeGuilty (suspectA, roomC);
+		this.makeSuspect (suspectB, roomB);
+		this.makeSuspect (suspectC, roomC);
+		
+		this.activateWeapon (weaponA);
+		this.activateWeapon (weaponB);
+
+		theCase.activeWeapons.Add (weaponA);
+		theCase.activeWeapons.Add (weaponB);
+		theCase.activeWeapons.Add (weaponC);
+
+		theCase.setGuilty (suspectA);
+		theCase.setRoom (roomA);
+		theCase.setWeapon (weaponA);
+
+		return theCase;
+	}
+
+
+
 }
 
 

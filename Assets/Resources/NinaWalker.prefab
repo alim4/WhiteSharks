@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.04999995, z: 0}
+  m_LocalPosition: {x: -.984133244, y: -4.98999977, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,23 +52,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementName: Nina Walker
-  description: Nina is a member of the YAP. A successful young teenager.
+  description: 'Nina is a member of the YAP. A successful young teenager. '
   profileImage: {fileID: 21300000, guid: 49d23c920db634c9c8c676eba195dcf1, type: 3}
   guilt: 2
-  location: 2
-  visible: 0
+  location: 5
+  visible: 1
   defaultIcon: Walk_Icon
-  conversationObj: {fileID: 0}
   playerObj: {fileID: 0}
   box: {fileID: 6100000}
-  weaponProficiency: 2
+  weaponProficiency: 3
   highClass: 1
-  alibi: F
+  alibi: Cafe
   scene: scene1
-  personalSentence: 
-  convo: 
-  convoBubble: {fileID: 0}
-  npcKnowledge: {fileID: 0}
+  trust: 0
+  enumName: 5
+  relations: 040000000500000006000000070000000800000009000000
   mouseOverIcon: Speech_Icon
 --- !u!212 &21200000
 SpriteRenderer:
@@ -88,9 +86,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_SortingLayerID: 1982072587
+  m_SortingLayer: 2
+  m_SortingOrder: 2
+  m_SortingLayerID: 2971093031
   m_Sprite: {fileID: 21300000, guid: 9a8a747252062430b88f5cb0739aa072, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

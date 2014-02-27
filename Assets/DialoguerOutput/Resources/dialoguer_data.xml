@@ -2347,7 +2347,7 @@ the Dialoguer system!</text>
       <startPage>21</startPage>
       <scrollPosition>
         <x>0</x>
-        <y>1236.07483</y>
+        <y>706.0443</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -2398,12 +2398,11 @@ the Dialoguer system!</text>
             <y>605</y>
           </position>
           <outs>
-            <int>5</int>
+            <int>45</int>
             <int>3</int>
             <int>34</int>
             <int>35</int>
             <int>40</int>
-            <int>38</int>
             <int>0</int>
           </outs>
           <advanced>false</advanced>
@@ -2431,11 +2430,10 @@ the Dialoguer system!</text>
           <choices>
             <string>What have you been doing today?</string>
             <string>Can you tell me about anyone else?</string>
-            <string>Listen, I report to people higher than you do, so let’s cut to the chase… OK?</string>
-            <string>Did you know that by helping the right person you could get a raise very quickly here?</string>
-            <string>[Present personal object]</string>
+            <string>[Harass]</string>
+            <string>[Flatter]</string>
             <string>What can you tell me about yourself?</string>
-            <string>That's enough for now.</string>
+            <string>That's enough for now, thanks.</string>
           </choices>
           <waitType>Seconds</waitType>
           <waitDuration>0</waitDuration>
@@ -2807,7 +2805,7 @@ the Dialoguer system!</text>
           <variableId>3</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>90</y>
+            <y>110</y>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
@@ -4367,6 +4365,51 @@ the Dialoguer system!</text>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>45</id>
+          <type>TextPhase</type>
+          <position>
+            <x>1050.0686</x>
+            <y>998.0481</y>
+          </position>
+          <outs>
+            <int>0</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text>I was patrolling the Gym Whitehead area. Seemed pointless though since the place was empty.</text>
+          <name />
+          <portrait />
+          <audio />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
       </phases>
       <floats>
         <variables>
@@ -4398,8 +4441,8 @@ the Dialoguer system!</text>
       <name>Nina Walker</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>880.0598</x>
-        <y>1448.0896</y>
+        <x>0</x>
+        <y>538.034058</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -4634,12 +4677,11 @@ the Dialoguer system!</text>
             <y>495</y>
           </position>
           <outs>
-            <int>7</int>
+            <int>37</int>
             <int>12</int>
             <int>25</int>
             <int>27</int>
             <int>29</int>
-            <int>33</int>
             <int>6</int>
           </outs>
           <advanced>false</advanced>
@@ -4666,12 +4708,11 @@ the Dialoguer system!</text>
           <newWindow>false</newWindow>
           <choices>
             <string>Where have you been today?</string>
-            <string>What can you tell me about other people?</string>
-            <string>Aren’t you a little young to be out here by yourself? It’d be sooo easy for me to contact your supervisor...</string>
+            <string>[Harass]</string>
+            <string>[Flatter]</string>
             <string>I’ve read your reports from YAP, they’re impressive.</string>
             <string>What’s it like in YAP?</string>
-            <string>[Present Personal Object]</string>
-            <string>We can talk later, thanks.</string>
+            <string>We can talk later.</string>
           </choices>
           <waitType>Seconds</waitType>
           <waitDuration>0</waitDuration>
@@ -6066,6 +6107,51 @@ the Dialoguer system!</text>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>37</id>
+          <type>TextPhase</type>
+          <position>
+            <x>10</x>
+            <y>1116.08325</y>
+          </position>
+          <outs>
+            <int>6</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text>I was skipping Noel’s lectures and hanging out by myself in the Café. I made sure no one could recognize me, and I was studying so it’s OK.</text>
+          <name />
+          <portrait />
+          <audio />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
       </phases>
       <floats>
         <variables>
@@ -6091,8 +6177,8 @@ the Dialoguer system!</text>
       <name>Josh Susach</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>172.01416</x>
-        <y>1020.06567</y>
+        <x>0</x>
+        <y>740.0492</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -6327,15 +6413,14 @@ the Dialoguer system!</text>
             <y>506.006836</y>
           </position>
           <outs>
-            <int>8</int>
+            <int>36</int>
             <int>12</int>
             <int>25</int>
             <int>27</int>
             <int>29</int>
-            <int xsi:nil="true" />
             <int>7</int>
           </outs>
-          <advanced>true</advanced>
+          <advanced>false</advanced>
           <metadata />
           <text />
           <name>What's your next line of questioning?</name>
@@ -6360,11 +6445,10 @@ the Dialoguer system!</text>
           <choices>
             <string>What were you doing today?</string>
             <string>Can you tell me about someone else?</string>
-            <string>I believe art is not everything you deal with, right?</string>
-            <string>I hear you’re an artists of sorts...</string>
+            <string>[Harass]</string>
+            <string>[Flatter]</string>
             <string>Tell me about yourself.</string>
-            <string>[Present Personal Object]</string>
-            <string>We can stop talking</string>
+            <string>Goodbye, Josh.</string>
           </choices>
           <waitType>Seconds</waitType>
           <waitDuration>0</waitDuration>
@@ -6427,8 +6511,8 @@ the Dialoguer system!</text>
           <id>7</id>
           <type>EndPhase</type>
           <position>
-            <x>31</x>
-            <y>1091.02588</y>
+            <x>172</x>
+            <y>1077.02588</y>
           </position>
           <outs />
           <advanced>false</advanced>
@@ -7714,6 +7798,51 @@ the Dialoguer system!</text>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>36</id>
+          <type>TextPhase</type>
+          <position>
+            <x>58.0009766</x>
+            <y>1120.05444</y>
+          </position>
+          <outs>
+            <int>7</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text>I was at the Whitehead Gym, trying working on my sales muscles... but no one else was there.</text>
+          <name />
+          <portrait />
+          <audio />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
       </phases>
       <floats>
         <variables />
@@ -7733,8 +7862,8 @@ the Dialoguer system!</text>
       <name>Noel Alt</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>18.0004883</x>
-        <y>740.045166</y>
+        <x>768.0469</x>
+        <y>756.046753</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -7969,14 +8098,13 @@ the Dialoguer system!</text>
             <y>509.987061</y>
           </position>
           <outs>
-            <int>7</int>
+            <int>33</int>
+            <int>19</int>
             <int>20</int>
             <int>21</int>
-            <int>22</int>
-            <int>24</int>
             <int>6</int>
           </outs>
-          <advanced>true</advanced>
+          <advanced>false</advanced>
           <metadata />
           <text />
           <name>What's your next question?</name>
@@ -8000,11 +8128,10 @@ the Dialoguer system!</text>
           <newWindow>false</newWindow>
           <choices>
             <string>What can you tell me about other people?</string>
-            <string>Stop pretending, I can tell you don’t have anything for me.</string>
-            <string>Thank you for the help, your skills are crucial for this case.</string>
+            <string>[Harass]</string>
+            <string>[Flatter]</string>
             <string>So why are you on the ship?</string>
-            <string>[Present Personal Object]</string>
-            <string>We can talk later.</string>
+            <string>See ya later, Noel.</string>
           </choices>
           <waitType>Seconds</waitType>
           <waitDuration>0</waitDuration>
@@ -8022,8 +8149,8 @@ the Dialoguer system!</text>
           <id>6</id>
           <type>EndPhase</type>
           <position>
-            <x>200</x>
-            <y>1035.987</y>
+            <x>279</x>
+            <y>938.987061</y>
           </position>
           <outs />
           <advanced>false</advanced>
@@ -8062,19 +8189,19 @@ the Dialoguer system!</text>
           <type>BranchedTextPhase</type>
           <theme />
           <position>
-            <x>381</x>
+            <x>383</x>
             <y>510.9934</y>
           </position>
           <outs>
-            <int>8</int>
-            <int>9</int>
+            <int xsi:nil="true" />
             <int>30</int>
-            <int>5</int>
+            <int xsi:nil="true" />
+            <int xsi:nil="true" />
           </outs>
           <advanced>true</advanced>
           <metadata />
           <text />
-          <name>Depends on who.</name>
+          <name>Give me a name first.</name>
           <portrait />
           <audio />
           <audioDelay>0</audioDelay>
@@ -8113,59 +8240,14 @@ the Dialoguer system!</text>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
           <id>8</id>
-          <type>TextPhase</type>
-          <position>
-            <x>714.0005</x>
-            <y>518.9934</y>
-          </position>
-          <outs>
-            <int>7</int>
-          </outs>
-          <advanced>false</advanced>
-          <metadata />
-          <text>Liam what? Oh, wait. Yeah. He’s one of the security guys, right? I’ve seen him a couple times but I don’t really know him.</text>
-          <name />
-          <portrait />
-          <audio />
-          <audioDelay>0</audioDelay>
-          <rect>
-            <x>0</x>
-            <y>0</y>
-            <center>
-              <x>0</x>
-              <y>0</y>
-            </center>
-            <width>0</width>
-            <height>0</height>
-            <xMin>0</xMin>
-            <yMin>0</yMin>
-            <xMax>0</xMax>
-            <yMax>0</yMax>
-          </rect>
-          <newWindow>false</newWindow>
-          <choices />
-          <waitType>Seconds</waitType>
-          <waitDuration>0</waitDuration>
-          <variableScope>Global</variableScope>
-          <variableType>Boolean</variableType>
-          <variableId>0</variableId>
-          <variableScrollPosition>
-            <x>0</x>
-            <y>0</y>
-          </variableScrollPosition>
-          <variableSetEquation>Equals</variableSetEquation>
-          <variableGetEquation>Equals</variableGetEquation>
-        </DialogueEditorPhaseObject>
-        <DialogueEditorPhaseObject>
-          <id>9</id>
           <type>ConditionalPhase</type>
           <position>
             <x>723.0027</x>
             <y>680.993652</y>
           </position>
           <outs>
-            <int>10</int>
-            <int>31</int>
+            <int>9</int>
+            <int>30</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -8201,11 +8283,11 @@ the Dialoguer system!</text>
           <variableGetValue>1</variableGetValue>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>10</id>
+          <id>9</id>
           <type>TextPhase</type>
           <position>
-            <x>539.0161</x>
-            <y>1011.99365</y>
+            <x>576.0161</x>
+            <y>1031.99365</y>
           </position>
           <outs>
             <int>7</int>
@@ -8246,11 +8328,55 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>11</id>
+          <id>10</id>
           <type>ConditionalPhase</type>
           <position>
             <x>1042</x>
             <y>527.996338</y>
+          </position>
+          <outs>
+            <int>14</int>
+            <int>11</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>String</variableType>
+          <variableId>8</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>90</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+          <variableGetValue>smallProjectiles</variableGetValue>
+        </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>11</id>
+          <type>ConditionalPhase</type>
+          <position>
+            <x>1363</x>
+            <y>529.996338</y>
           </position>
           <outs>
             <int>15</int>
@@ -8287,13 +8413,13 @@ the Dialoguer system!</text>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
-          <variableGetValue>smallProjectiles</variableGetValue>
+          <variableGetValue>bluntWeapons</variableGetValue>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
           <id>12</id>
           <type>ConditionalPhase</type>
           <position>
-            <x>1363</x>
+            <x>1689</x>
             <y>529.996338</y>
           </position>
           <outs>
@@ -8331,62 +8457,18 @@ the Dialoguer system!</text>
           </variableScrollPosition>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
-          <variableGetValue>bluntWeapons</variableGetValue>
-        </DialogueEditorPhaseObject>
-        <DialogueEditorPhaseObject>
-          <id>13</id>
-          <type>ConditionalPhase</type>
-          <position>
-            <x>1689</x>
-            <y>529.996338</y>
-          </position>
-          <outs>
-            <int>17</int>
-            <int>14</int>
-          </outs>
-          <advanced>false</advanced>
-          <metadata />
-          <text />
-          <audioDelay>0</audioDelay>
-          <rect>
-            <x>0</x>
-            <y>0</y>
-            <center>
-              <x>0</x>
-              <y>0</y>
-            </center>
-            <width>0</width>
-            <height>0</height>
-            <xMin>0</xMin>
-            <yMin>0</yMin>
-            <xMax>0</xMax>
-            <yMax>0</yMax>
-          </rect>
-          <newWindow>false</newWindow>
-          <choices />
-          <waitType>Seconds</waitType>
-          <waitDuration>0</waitDuration>
-          <variableScope>Global</variableScope>
-          <variableType>String</variableType>
-          <variableId>8</variableId>
-          <variableScrollPosition>
-            <x>0</x>
-            <y>90</y>
-          </variableScrollPosition>
-          <variableSetEquation>Equals</variableSetEquation>
-          <variableGetEquation>Equals</variableGetEquation>
           <variableGetValue>sharpWeapons</variableGetValue>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>14</id>
+          <id>13</id>
           <type>ConditionalPhase</type>
           <position>
             <x>2016</x>
             <y>532.996338</y>
           </position>
           <outs>
+            <int>17</int>
             <int>18</int>
-            <int>19</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -8422,7 +8504,7 @@ the Dialoguer system!</text>
           <variableGetValue>firearms</variableGetValue>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>15</id>
+          <id>14</id>
           <type>TextPhase</type>
           <position>
             <x>1042.96436</x>
@@ -8467,7 +8549,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>16</id>
+          <id>15</id>
           <type>TextPhase</type>
           <position>
             <x>1366.96973</x>
@@ -8512,7 +8594,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>17</id>
+          <id>16</id>
           <type>TextPhase</type>
           <position>
             <x>1689.9856</x>
@@ -8557,7 +8639,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>18</id>
+          <id>17</id>
           <type>TextPhase</type>
           <position>
             <x>2010.9856</x>
@@ -8602,7 +8684,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>19</id>
+          <id>18</id>
           <type>TextPhase</type>
           <position>
             <x>2329</x>
@@ -8647,14 +8729,14 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>20</id>
+          <id>19</id>
           <type>TextPhase</type>
           <position>
-            <x>374</x>
-            <y>1126.97437</y>
+            <x>363</x>
+            <y>1194.97437</y>
           </position>
           <outs>
-            <int>28</int>
+            <int>27</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -8692,14 +8774,14 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>21</id>
+          <id>20</id>
           <type>TextPhase</type>
           <position>
             <x>728</x>
             <y>1126.98</y>
           </position>
           <outs>
-            <int>29</int>
+            <int>28</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -8737,14 +8819,14 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>22</id>
+          <id>21</id>
           <type>TextPhase</type>
           <position>
             <x>1158.04028</x>
             <y>1136.98</y>
           </position>
           <outs>
-            <int>27</int>
+            <int>26</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -8782,7 +8864,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>23</id>
+          <id>22</id>
           <type>TextPhase</type>
           <position>
             <x>1546.08032</x>
@@ -8827,15 +8909,15 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>24</id>
+          <id>23</id>
           <type>ConditionalPhase</type>
           <position>
             <x>1547.08032</x>
             <y>1022.98</y>
           </position>
           <outs>
-            <int>25</int>
-            <int>23</int>
+            <int>24</int>
+            <int>22</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -8872,14 +8954,14 @@ the Dialoguer system!</text>
           <variableGetValue>true</variableGetValue>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>25</id>
+          <id>24</id>
           <type>TextPhase</type>
           <position>
             <x>1897.08032</x>
             <y>1035.98</y>
           </position>
           <outs>
-            <int>26</int>
+            <int>25</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -8917,7 +8999,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>26</id>
+          <id>25</id>
           <type>SetVariablePhase</type>
           <position>
             <x>1902.08032</x>
@@ -8960,7 +9042,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>27</id>
+          <id>26</id>
           <type>SetVariablePhase</type>
           <position>
             <x>1170.05078</x>
@@ -9003,7 +9085,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>28</id>
+          <id>27</id>
           <type>SetVariablePhase</type>
           <position>
             <x>380.007324</x>
@@ -9046,7 +9128,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>29</id>
+          <id>28</id>
           <type>SetVariablePhase</type>
           <position>
             <x>730.0073</x>
@@ -9089,7 +9171,7 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>30</id>
+          <id>29</id>
           <type>TextPhase</type>
           <position>
             <x>714.6651</x>
@@ -9134,18 +9216,18 @@ the Dialoguer system!</text>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
         <DialogueEditorPhaseObject>
-          <id>31</id>
+          <id>30</id>
           <type>TextPhase</type>
           <position>
-            <x>1039.94446</x>
-            <y>994.027466</y>
+            <x>1028.94446</x>
+            <y>1008.02747</y>
           </position>
           <outs>
-            <int>11</int>
+            <int>31</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
-          <text>Ah, Nina. I love that brat. She works for me. What has she done this time?</text>
+          <text>Ah, Nina. I love that brat. She's one of my students. What has she done this time?</text>
           <name />
           <portrait />
           <audio />
@@ -9178,6 +9260,147 @@ the Dialoguer system!</text>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>31</id>
+          <type>TextPhase</type>
+          <position>
+            <x>397</x>
+            <y>1609.06824</y>
+          </position>
+          <outs>
+            <int>6</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text>She’s got a nasty habit of bringing her eSword to class. Is there any context where that is appropriate?</text>
+          <name />
+          <portrait />
+          <audio />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>32</id>
+          <type>BranchedTextPhase</type>
+          <theme />
+          <position>
+            <x>11</x>
+            <y>1025.06079</y>
+          </position>
+          <outs>
+            <int xsi:nil="true" />
+            <int>30</int>
+            <int xsi:nil="true" />
+            <int xsi:nil="true" />
+          </outs>
+          <advanced>true</advanced>
+          <metadata />
+          <text />
+          <name>Give me a name first.</name>
+          <portrait />
+          <audio />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices>
+            <string>Liam O'Shea</string>
+            <string>Nina Walker</string>
+            <string>Josh Susach</string>
+            <string>Go Back.</string>
+          </choices>
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>33</id>
+          <type>WaitPhase</type>
+          <position>
+            <x>43</x>
+            <y>945.055542</y>
+          </position>
+          <outs>
+            <int>32</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0.1</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
       </phases>
       <floats>
         <variables />
@@ -9197,8 +9420,8 @@ the Dialoguer system!</text>
       <name>Peijun Shi</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>108.006592</x>
-        <y>488.026733</y>
+        <x>0</x>
+        <y>572.960938</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -9433,11 +9656,10 @@ the Dialoguer system!</text>
             <y>512</y>
           </position>
           <outs>
-            <int>7</int>
+            <int>34</int>
             <int>19</int>
             <int>20</int>
             <int>21</int>
-            <int>23</int>
             <int>6</int>
           </outs>
           <advanced>false</advanced>
@@ -9464,11 +9686,10 @@ the Dialoguer system!</text>
           <newWindow>false</newWindow>
           <choices>
             <string>What can you tell me about other people?</string>
-            <string>You must be very smart for making your business so successful in this area...</string>
-            <string>I really wanted to talk to you, you’re well respected here. Thanks for the help.</string>
+            <string>[Harass]</string>
+            <string>[Flatter]</string>
             <string>Tell me about yourself.</string>
-            <string>[Present a Personal Object]</string>
-            <string>We can talk again later.</string>
+            <string>I'll talk to you later, Mrs. Shi.</string>
           </choices>
           <waitType>Seconds</waitType>
           <waitDuration>0</waitDuration>
@@ -9579,11 +9800,11 @@ the Dialoguer system!</text>
           <id>8</id>
           <type>TextPhase</type>
           <position>
-            <x>499.0039</x>
-            <y>901.004639</y>
+            <x>361.0039</x>
+            <y>884.004639</y>
           </position>
           <outs>
-            <int>10</int>
+            <int>32</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -10069,8 +10290,8 @@ the Dialoguer system!</text>
           <id>19</id>
           <type>TextPhase</type>
           <position>
-            <x>183</x>
-            <y>1140</y>
+            <x>306</x>
+            <y>1181</y>
           </position>
           <outs>
             <int>28</int>
@@ -10458,7 +10679,7 @@ the Dialoguer system!</text>
           <variableId>5</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>33</y>
+            <y>47</y>
           </variableScrollPosition>
           <variableSetEquation>Add</variableSetEquation>
           <variableSetValue>0.5</variableSetValue>
@@ -10468,8 +10689,8 @@ the Dialoguer system!</text>
           <id>28</id>
           <type>SetVariablePhase</type>
           <position>
-            <x>198</x>
-            <y>1280.00354</y>
+            <x>306</x>
+            <y>1332.00354</y>
           </position>
           <outs>
             <int>5</int>
@@ -10501,7 +10722,7 @@ the Dialoguer system!</text>
           <variableId>5</variableId>
           <variableScrollPosition>
             <x>0</x>
-            <y>33</y>
+            <y>47</y>
           </variableScrollPosition>
           <variableSetEquation>Add</variableSetEquation>
           <variableSetValue>0.5</variableSetValue>
@@ -10642,6 +10863,147 @@ the Dialoguer system!</text>
           <variableSetEquation>Equals</variableSetEquation>
           <variableGetEquation>Equals</variableGetEquation>
         </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>32</id>
+          <type>TextPhase</type>
+          <position>
+            <x>358.014282</x>
+            <y>1020.06104</y>
+          </position>
+          <outs>
+            <int>6</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text>I’ve known him since he was a kid, which is why I get mad at him when I see him bring his laser pistol here. He shouldn’t carry that thing when not on duty.</text>
+          <name />
+          <portrait />
+          <audio />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>33</id>
+          <type>BranchedTextPhase</type>
+          <theme />
+          <position>
+            <x>10</x>
+            <y>1101.98425</y>
+          </position>
+          <outs>
+            <int>8</int>
+            <int xsi:nil="true" />
+            <int xsi:nil="true" />
+            <int xsi:nil="true" />
+          </outs>
+          <advanced>true</advanced>
+          <metadata />
+          <text />
+          <name>I don't know, who?</name>
+          <portrait />
+          <audio />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices>
+            <string>Liam O'Shea</string>
+            <string>Nina Walker</string>
+            <string>Josh Susach</string>
+            <string>Go back.</string>
+          </choices>
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>34</id>
+          <type>WaitPhase</type>
+          <position>
+            <x>14</x>
+            <y>999.9889</y>
+          </position>
+          <outs>
+            <int>33</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0.1</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
       </phases>
       <floats>
         <variables />
@@ -10661,8 +11023,8 @@ the Dialoguer system!</text>
       <name>Carlos Franco</name>
       <startPage>0</startPage>
       <scrollPosition>
-        <x>14.0014648</x>
-        <y>402.024536</y>
+        <x>38.00171</x>
+        <y>378.02063</y>
       </scrollPosition>
       <phases>
         <DialogueEditorPhaseObject>
@@ -10897,16 +11259,15 @@ the Dialoguer system!</text>
             <y>486</y>
           </position>
           <outs>
-            <int>7</int>
+            <int>33</int>
             <int>19</int>
             <int>20</int>
             <int>21</int>
             <int>25</int>
-            <int>6</int>
           </outs>
           <advanced>true</advanced>
           <metadata />
-          <text>What do you want.</text>
+          <text />
           <name>What's your next question?</name>
           <portrait />
           <audio />
@@ -10928,10 +11289,9 @@ the Dialoguer system!</text>
           <newWindow>false</newWindow>
           <choices>
             <string>Can you tell me about anyone else?</string>
-            <string>You seem like someone that someone else is looking for...</string>
-            <string>Do you want to go for a drink later? If I get to solve this case, that is...</string>
+            <string>[Harass]</string>
+            <string>[Flatter]</string>
             <string>Tell me about yourself</string>
-            <string>[Present a personal object]</string>
             <string>We can pick this up later.</string>
           </choices>
           <waitType>Seconds</waitType>
@@ -10950,8 +11310,8 @@ the Dialoguer system!</text>
           <id>6</id>
           <type>EndPhase</type>
           <position>
-            <x>330</x>
-            <y>1015</y>
+            <x>345</x>
+            <y>1185</y>
           </position>
           <outs />
           <advanced>false</advanced>
@@ -10996,10 +11356,10 @@ the Dialoguer system!</text>
           <outs>
             <int>8</int>
             <int>30</int>
-            <int>9</int>
+            <int>32</int>
             <int>5</int>
           </outs>
-          <advanced>false</advanced>
+          <advanced>true</advanced>
           <metadata />
           <text />
           <name>Who do you wanna know about?</name>
@@ -11043,8 +11403,8 @@ the Dialoguer system!</text>
           <id>8</id>
           <type>TextPhase</type>
           <position>
-            <x>442.9983</x>
-            <y>895</y>
+            <x>620.9983</x>
+            <y>923</y>
           </position>
           <outs>
             <int>7</int>
@@ -12020,8 +12380,8 @@ the Dialoguer system!</text>
           <id>30</id>
           <type>TextPhase</type>
           <position>
-            <x>673.0198</x>
-            <y>937.0332</y>
+            <x>816.0198</x>
+            <y>960.0332</y>
           </position>
           <outs>
             <int>7</int>
@@ -12069,7 +12429,7 @@ the Dialoguer system!</text>
             <y>431.021729</y>
           </position>
           <outs>
-            <int>10</int>
+            <int>32</int>
           </outs>
           <advanced>false</advanced>
           <metadata />
@@ -12096,6 +12456,93 @@ the Dialoguer system!</text>
           <choices />
           <waitType>Seconds</waitType>
           <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>32</id>
+          <type>TextPhase</type>
+          <position>
+            <x>19</x>
+            <y>1360.05908</y>
+          </position>
+          <outs>
+            <int>6</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text>Josh is cool, just make sure you pay him in full or he’ll hit you with his metal pipe.</text>
+          <name />
+          <portrait />
+          <audio />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0</waitDuration>
+          <variableScope>Global</variableScope>
+          <variableType>Boolean</variableType>
+          <variableId>0</variableId>
+          <variableScrollPosition>
+            <x>0</x>
+            <y>0</y>
+          </variableScrollPosition>
+          <variableSetEquation>Equals</variableSetEquation>
+          <variableGetEquation>Equals</variableGetEquation>
+        </DialogueEditorPhaseObject>
+        <DialogueEditorPhaseObject>
+          <id>33</id>
+          <type>WaitPhase</type>
+          <position>
+            <x>10</x>
+            <y>1245.05237</y>
+          </position>
+          <outs>
+            <int>7</int>
+          </outs>
+          <advanced>false</advanced>
+          <metadata />
+          <text />
+          <audioDelay>0</audioDelay>
+          <rect>
+            <x>0</x>
+            <y>0</y>
+            <center>
+              <x>0</x>
+              <y>0</y>
+            </center>
+            <width>0</width>
+            <height>0</height>
+            <xMin>0</xMin>
+            <yMin>0</yMin>
+            <xMax>0</xMax>
+            <yMax>0</yMax>
+          </rect>
+          <newWindow>false</newWindow>
+          <choices />
+          <waitType>Seconds</waitType>
+          <waitDuration>0.1</waitDuration>
           <variableScope>Global</variableScope>
           <variableType>Boolean</variableType>
           <variableId>0</variableId>
@@ -12267,5 +12714,5 @@ the Dialoguer system!</text>
     <x>0</x>
     <y>0</y>
   </selectorScrollPosition>
-  <currentDialogueId>9</currentDialogueId>
+  <currentDialogueId>7</currentDialogueId>
 </DialogueEditorMasterObject>

@@ -10,7 +10,7 @@ public class NPC : CaseElement {
 		conversation
 	};
 	
-	public GameObject conversationObj, playerObj;
+	public GameObject playerObj;
 	public BoxCollider2D box;
 
 	//NPC specific data fields
@@ -19,17 +19,25 @@ public class NPC : CaseElement {
 	public string alibi;			//A set of info that represents an alibi, requires another npc, location
 	public ArrayList animations;		//An array list of sprites representing the animation
 	public string scene;
-	public string personalSentence;
-	public string convo;
-	public GameObject convoBubble;
 
+	public float trust;
+	public NPCNames enumName;
+	public List<NPCNames> relations;
+	private Conversation convSetup;
+	
 	public Dictionary npcKnowledge;
 
 	//Mouse icon information
 	public string mouseOverIcon = "Speech_Icon";
 
 	void Start(){
-		convoBubble = GameObject.Find ("Conversation Bubble");
+
+
+		npcKnowledge = new Dictionary ();
+		npcKnowledge.addNewEntry (new DictEntry(enumName, guilt, weaponProficiency, scene, trust));
+
+		convSetup = new Conversation (GameManager.Instance.GetMainCharacter(), relations, npcKnowledge[0].getIndex());
+
 	}
 	
 	public void OnMouseEnter(){
@@ -39,31 +47,58 @@ public class NPC : CaseElement {
 	//enable conversation object if left mouse button is clicked.
 	public void OnMouseDown(){
 		if(Input.GetMouseButton(0)){
-			//conversationObj.renderer.enabled = true;
-			//conversationObj.collider2D.enabled = true;
+			Debug.LogError("HI");
+			if (this.elementName.CompareTo("Liam O'Shea")==0){
+				Debug.LogError("HI LIAM");
+				GameManager.npcList.Find(x => x.elementName.CompareTo("Liam O'Shea")==0).description = "Liam is a guard at the Fin. He can wield LASER PISTOLS. He says he was at the GYM.";
+				journal.Instance.updateNPCs();
+			}
+			else if (this.elementName.CompareTo("Nina Walker")==0){
+				Debug.LogError("HI NINA");
+				GameManager.npcList.Find(x => x.elementName.CompareTo("Nina Walker")==0).description = "Nina is a member of the YAP. A successful young teenager. She can wield the eSWORD. She says she was at the CAFÉ.";
+				journal.Instance.updateNPCs();
+			}
+			else if (this.elementName.CompareTo("Josh Susach")==0) {
+				Debug.LogError("HI JOSH");
+				GameManager.npcList.Find(x => x.elementName.CompareTo("Josh Susach")==0).description = "He's a criminal. He's an artist. He's proud of both. He can wield the METAL PIPE. He says he was at the GYM.";
+				journal.Instance.updateNPCs();
+			}
+			playerScript temp = (playerScript) FindObjectOfType(typeof(playerScript));
+			temp.canWalk = false;
+			convSetup.generateDialoguer();
 			//GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
 
-			// Temp
-			Debug.Log ("NPC name: " + this.gameObject.name);
-			Dialoguer.StartDialogue(getDialogue());
-			//convoBubble.GetComponentInChildren<UILabel>().text = convo;
-			//convoBubble.GetComponentInChildren<UI2DSprite>().sprite2D = this.getProfileImage();
+			/*
+			//conversationObj.renderer.enabled = true;
+			//conversationObj.collider2D.enabled = true;
+			GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
+
+			convoBubble.GetComponentInChildren<UILabel>().text = convo;
+			convoBubble.GetComponentInChildren<UI2DSprite>().sprite2D = this.getProfileImage();*/
 		}
 	}
 
-	// gets the int corresponding to the Dialoguer ID
-	public int getDialogue()
-	{
-		string npcName = this.gameObject.name;
-		if (npcName == "LiamOShea") return 4;
-		else if (npcName == "NinaWalker") return 5;
-		else if (npcName == "JoshSusach") return 6;
-		else if (npcName == "NoelAlt") return 7;
-		else if (npcName == "PeijunShi") return 8;
-		else if (npcName == "CarlosFranco") return 9;
-
-		return -1;
+	public NPCNames getEnumName(){
+		return enumName;
 	}
+	
+	public Category getWeaponProf(){
+		return weaponProficiency;
+	}
+	
+	public float getTrust(){
+		return trust;
+	}
+	
+	public string getAlibi(){
+
+		if (alibi == "") {
+			alibi = (string) GameManager.Instance.roomIDList[location];
+		}
+
+		return alibi;
+	}
+	
 	//switch the displaying order of the npc. 
 	void Update () {
 		/*if (transform.position.y < playerObj.transform.position.y) {

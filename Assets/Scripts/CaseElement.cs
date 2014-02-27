@@ -10,7 +10,6 @@ public abstract class CaseElement : MonoBehaviour {
 
 	public GuiltLevel guilt;		//How is it related to the case?  
 	public int location;			//Where is it during gameplay, every room/scene has a corresponding Int id
-	private GameObject conversation;//The associated dialogue when a case element is clicked
 	public bool visible=false;			//Is the element visible in the journal?
 
 	public string defaultIcon = "Walk_Icon";		//The standard mouse icon when not hovering over an object
@@ -41,11 +40,6 @@ public abstract class CaseElement : MonoBehaviour {
 		location = somePlace;
 	}
 
-	public void setConv(GameObject someConv){
-		conversation = someConv;
-	}
-
-
 	//Getters for all Case Element fields
 	public string getElementName( ){
 		return elementName;
@@ -67,10 +61,6 @@ public abstract class CaseElement : MonoBehaviour {
 
 	public int getLocation( ){
 		return location;
-	}
-	
-	public GameObject getConv( ){
-		return conversation;
 	}
 
 	public bool isVisible(){

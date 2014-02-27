@@ -27,8 +27,11 @@ public class GameManager : MonoBehaviour {
 	public static CaseObject weapon;
 	public static string room;
 
+	//This is the target state the player wishes to reach for maximum score
+	public static Dictionary idealGameState;
+
 	//Handles mouse cursor information
-	public static int cursorSize = 64;
+	public static int cursorSize = 32;
 	public static List<Texture2D> mouseSprites;
 	public static string[] spriteIndex;
 	public static Texture2D currMouse;
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour {
 		_currLevel = "Level 1";
 		_name = "My Character";
 		_currentState = gameStates.INGAME;
+		idealGameState = new Dictionary ();
 
 		// Load character select screen
 		Application.LoadLevel ("CharacterSele");
@@ -95,10 +99,10 @@ public class GameManager : MonoBehaviour {
 	/// Generates the case
 	/// </summary>
 	public void generateCase() {
-		Debug.Log (theCase.getRoom());
+		//Debug.Log (theCase.getRoom());
 		theCase = generator.generateCase();
 		//Debug.Log ("the case in GM " + guilty + " " + weapon + " " + room);
-		Debug.Log (theCase.getRoom());
+		//Debug.Log (theCase.getRoom());
 	}
 
 	/// <summary>
@@ -173,13 +177,31 @@ public class GameManager : MonoBehaviour {
 		//Handle mouse updates here
 
 		GUI.DrawTexture (new Rect (Input.mousePosition.x - cursorSize / 16, (Screen.height - Input.mousePosition.y) - cursorSize / 16,
-		                      cursorSize, cursorSize), currMouse);
+		                           cursorSize, cursorSize), currMouse);
+
 
 	}
 
-	void Update() {
-		//print ("Test??");
+	//Access function for updating the GameManager's dictionary
+	public void addEntry(DictEntry newEntry){
+		idealGameState.addNewEntry (newEntry);
 	}
+	
+	//Access function for adding an entry to the GameManager's dictionary
+	public void updateDict(DictEntry newEntry){
+		idealGameState.updateDictionary (newEntry);
+	}
+	
+	//Access function for printing the GameManager's dictionary
+	public void printGoal(){
+		idealGameState.printEntries ();
+	}
+
+	//Access function for copying the dictionary
+	public Dictionary getDict(){
+		return idealGameState;
+	}
+
 
 	//Initialize the sprite array for the mouse to draw
 	//Loads in from Sprites/Mouse Icons
@@ -210,6 +232,17 @@ public class GameManager : MonoBehaviour {
 		print (currMouse.ToString () + " WHEEEE");
 	}
 
+	private void addWitnesses(){
+
+		foreach (NPC n in witnessList) {
+
+			idealGameState.addNewEntry(new DictEntry(n.getEnumName(), GuiltLevel.witness,
+			                                         n.getWeaponProf(), n.getAlibi(), n.getTrust()));
+
+		}
+
+	}
+
 	//Testing purposes
 	void Start(){
 		//start location
@@ -232,28 +265,35 @@ public class GameManager : MonoBehaviour {
 		roomIDList.Add("stage1");
 		roomIDList.Add("stage2");
 		roomIDList.Add("stage3");
+		roomIDList.Add("bar");
 		roomIDList.Add("stage4");
-		roomList.Add ("Gym");
-		roomList.Add ("Cafe");
 		roomList.Add ("Office");
+		roomList.Add ("Cafe");
+		roomList.Add ("Gym");
 		npcList.Add(Resources.Load<NPC>("LiamOShea"));
 		npcList.Add(Resources.Load<NPC>("NinaWalker"));
 		npcList.Add(Resources.Load<NPC>("JoshSusach"));
 		witnessList.Add(Resources.Load<NPC>("NoelAlt"));
 		witnessList.Add(Resources.Load<NPC>("PeijunShi"));
 		witnessList.Add(Resources.Load<NPC>("CarlosFranco"));
-		weaponList.Add(Resources.Load<CaseObject>("eSword"));
 		weaponList.Add(Resources.Load<CaseObject>("LaserPistol"));
+		weaponList.Add(Resources.Load<CaseObject>("eSword"));
 		weaponList.Add(Resources.Load<CaseObject>("MetalPipe"));
 		weaponList.Add(Resources.Load<CaseObject>("RadioactiveIceCubes"));
 		weaponList.Add(Resources.Load<CaseObject>("VSs"));
 		generator = new CaseGenerator ();
-		generateCase ();
+		//generateCase ();
+		theCase = generator.demo ();
+		addWitnesses ();
+
+		printGoal ();
 	}
 
 	public static List<NPC> getSceneNPCList(int sceneID){ 
 		List<NPC> temp = new List<NPC>();
 		foreach (NPC n in npcList) {
+			Debug.Log (n.location + " " + n.name);
+			Debug.Log (sceneID);
 			if (n.location == sceneID){
 				//Debug.Log("Match found");
 				temp.Add(n);

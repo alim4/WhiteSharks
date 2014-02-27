@@ -10,6 +10,10 @@ public class MoveCam : MonoBehaviour {
 		right = true;
 	}
 
+	void Update(){
+
+		}
+
 	void OnTriggerEnter2D(Collider2D collider){
 		playerScript playerObj = collider.gameObject.GetComponent<playerScript> ();
 
@@ -17,10 +21,14 @@ public class MoveCam : MonoBehaviour {
 			if(right){
 				mainCam.transform.Translate(new Vector3(-9.273237f, 0, 0));
 				right = false;
+				playerObj.transform.Translate(new Vector2(-2f, 0));
+				playerObj.moveTarget(new Vector2(-2f, 0));
 			}
 			else{
 				mainCam.transform.Translate(new Vector3(9.273237f, 0, 0));
 				right = true;
+				playerObj.transform.Translate(new Vector2(2f, 0));
+				playerObj.moveTarget(new Vector2(2f, 0));
 			}
 		}
 	}

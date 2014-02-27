@@ -7,6 +7,7 @@ public class CaseObject : CaseElement {
 	public ArrayList infoGuilty = new ArrayList();	//Store a list of strings that might be displayed if the item is related to the murder
 	public ArrayList infoNotGuilty = new ArrayList(); //If the item is unrelated, you might display one or more of these strings
 	public string conversation;
+	public CaseObjectNames myEnumName;
 
 /*	//enable conversation object if left mouse button is clicked.
 	public override void onMouseDown(){
@@ -20,6 +21,14 @@ public class CaseObject : CaseElement {
 	public void addInfoNotGuilty(string newInfo){
 		infoNotGuilty.Add(newInfo);
 	}
+
+	public void OnMouseDown(){
+		if (Input.GetMouseButton (0)) {
+			if (myEnumName != CaseObjectNames.unrelated)
+				Dialoguer.SetGlobalBoolean((int) myEnumName, true);
+		}
+	}
+
 
 	//Right now it just inputs preset sentences, replace with data driven stuff
 	void Start(){

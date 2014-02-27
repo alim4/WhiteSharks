@@ -40,14 +40,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementName: eSword
-  description: It's like Siri, but it kills.
+  description: It's like Siri, but it kills. We have information that this weapon
+    was beng USED at the time of the murder.
   profileImage: {fileID: 0}
-  guilt: 0
+  guilt: 1
   location: 0
-  visible: 0
+  visible: 1
   defaultIcon: Walk_Icon
   category: 3
   conversation: 
+  myEnumName: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

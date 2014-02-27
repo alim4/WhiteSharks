@@ -14,17 +14,21 @@ public class SceneSetup : MonoBehaviour {
 		this.npcList = GameManager.getSceneNPCList(this.id);
 		foreach (NPC n in npcList) 
 		{
-			string npcName = "NPCs/" + n;
-			NPC t = (NPC) Instantiate(Resources.Load<NPC>(n.name));
-			t.playerObj = GameObject.Find("player");
+			//if (!n.	placed){
+				NPC t = (NPC) Instantiate(Resources.Load<NPC>(n.name));
+			//	n.placed = true;
+				t.playerObj = GameObject.Find("player");
+			//}
 		}
 
 		this.witnessList = GameManager.getSceneWitnessList(this.id);
 		foreach (NPC n in witnessList) 
 		{
-			string npcName = "NPCs/" + n;
-			NPC t = (NPC) Instantiate(Resources.Load<NPC>(n.name));
-			t.playerObj = GameObject.Find("player");
+			//if (!n.	placed){
+			//	n.placed = true;
+				NPC t = (NPC) Instantiate(Resources.Load<NPC>(n.name));
+				t.playerObj = GameObject.Find("player");
+			// }
 		}
 	}
 	

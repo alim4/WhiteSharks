@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 20: {fileID: 2000000}
   - 50: {fileID: 5000000}
+  - 95: {fileID: 9500000}
   m_Layer: 10
   m_Name: player
   m_TagString: Player
@@ -86,6 +87,20 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .99820292, y: .734025955}
   m_Center: {x: .102235317, y: .367012501}
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af3b2932e50424648b2bc68fac73d3ea, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,12 +117,13 @@ MonoBehaviour:
   profileImage: {fileID: 0}
   guilt: 0
   location: 0
-  visible: 0
   defaultIcon: Walk_Icon
   maxSpeed: 8
   mainCam: {fileID: 0}
   mainChar: {fileID: 0}
   canWalk: 0
+  currentRoom: 0
+  scaleInfo: []
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

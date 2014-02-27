@@ -49,6 +49,10 @@ namespace DialoguerCore{
 			
 			// Clean up
 			reset();
+
+			//Debug.LogError ("DANGER");
+			playerScript temp = (playerScript) MonoBehaviour.FindObjectOfType(typeof(playerScript));
+			temp.canWalk = true;
 		}
 		
 		

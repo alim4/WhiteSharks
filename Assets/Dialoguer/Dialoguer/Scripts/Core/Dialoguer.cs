@@ -82,6 +82,7 @@ public class Dialoguer{
 	/// Ends the current dialogue
 	/// </summary>
 	public static void EndDialogue(){
+
 		DialoguerDialogueManager.endDialogue();
 	}
 	#endregion

@@ -44,10 +44,11 @@ MonoBehaviour:
   profileImage: {fileID: 0}
   guilt: 0
   location: 0
-  visible: 0
+  visible: 1
   defaultIcon: Walk_Icon
   category: 4
   conversation: 
+  myEnumName: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

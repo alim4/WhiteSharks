@@ -10,24 +10,23 @@ using System;
  * their own entries.  Entries are the key to unlocking different dialogue
  * options (they act as preconditions).
 */
-public class DictEntry : MonoBehaviour {
+public class DictEntry {
 	
-	public string index;			//Look up npcs through a string index (their name)
+	public NPCNames index;			//Look up npcs through a string index (their name)
 	public GuiltLevel guilt;		//Their guilt level
 	public Category weapon;			//Their weapon
 	public string location;			//Their location
-	public List<string> relations;	//If the NPC is connected to another somehow, store the other npcs indices here
 	public float trust;				//Their trust
 
-	public DictEntry(string ind, GuiltLevel gui, Category weap, string loc, List<string> relat, float tru){
+	public DictEntry(NPCNames ind, GuiltLevel gui, Category weap, string loc, float tru){
 		index = ind;
+		guilt = gui;
 		weapon = weap;
 		location = loc;
-		relations = relat;
 		trust = tru;
 	}
 
-	public string getIndex(){
+	public NPCNames getIndex(){
 		return index;
 	}
 
@@ -43,10 +42,6 @@ public class DictEntry : MonoBehaviour {
 		return location;
 	}
 
-	public List<string> getRelations(){
-		return relations;
-		}
-
 	public float getTrust(){
 		return trust;
 	}
@@ -54,8 +49,8 @@ public class DictEntry : MonoBehaviour {
 	//Print entry to console, useful for testing/debugging
 	//Does not print relations
 	public void printEntry(){
-		print ("[ " + index + "-> Guilt: " + guilt.ToString () + ", Weapon: " + weapon.ToString () + ", Loc: " + location + 
-						", Trust: " + trust + " ]\n");
+		Debug.LogWarning ("[ " + index.ToString() + "-> Guilt: " + guilt.ToString () + ", Weapon: " + weapon.ToString () + ", Loc: " + location + 
+					", Trust: " + trust + " ]\n");
 		}
 
 	//When given an entry whose index matches, update values to the new entry
