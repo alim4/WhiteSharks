@@ -76,6 +76,11 @@ public class GameManager : MonoBehaviour {
 		return currentMainCharacter;
 	}
 
+	// get player script of main character
+	public playerScript getPlayerScript(){
+		return (playerScript)GameObject.Find (this.GetMainCharacter() + "(Clone)").GetComponent<playerScript> ();
+	}
+
 	/// <summary>
 	/// Starts the game state and sets initial values
 	/// Should be called during gameStart
@@ -252,7 +257,6 @@ public class GameManager : MonoBehaviour {
 		setIcons ();
 
 		// Used for Dialoguer components
-		Debug.Log ("Persocets, Adderall, Ecstasy, PMW");
 		DialogueGUI dGUI = gameObject.AddComponent<DialogueGUI> ();
 		dGUI.setSkin(Resources.Load ("OldSchool") as GUISkin);
 		dGUI.setTexture(Resources.Load ("DialogueBoxDiagonalLines") as Texture2D);

@@ -46,6 +46,8 @@ public class playerScript : CaseElement {
 	}
 
 	void FixedUpdate(){	
+		Debug.Log ("Curr char: " + GameManager.Instance.GetMainCharacter());
+		Debug.Log ("Local pos: " + Mathf.Abs(this.transform.localPosition.x) + " -- " + 27.31f/2f );
 		if(canWalk){
 			float distance;
 			if(Input.GetMouseButton(0)){

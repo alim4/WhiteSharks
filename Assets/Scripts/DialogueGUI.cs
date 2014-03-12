@@ -39,22 +39,44 @@ public class DialogueGUI : MonoBehaviour {
 	
 	// TEXT VARS
 	private int _textFrames = int.MaxValue;
-	
+
+	private Texture2D mainChar;
+	private Texture2D targetChar;
+
+	private bool isTween = false;
+	private float startTime;
+	private float duration = 175.0f;
+	private float target = 2.0f;
+
 	// Use this for initialization
 	void Start () {
 		
 		addDialoguerEvents();
 		
 		_showDialogueBox = false;
-		
+
+		mainChar = (Texture2D)Resources.Load ("JaneSprite");
+		startTime = Time.time;
+
 		//Invoke("startWindowTweenIn", 1);
 		//Invoke("startWindowTweenOut", 5);
 	}
-	
+
+	public void setTargetTex(Texture2D npcTex)
+	{
+		if (npcTex != null) {
+			targetChar = npcTex;
+		}
+		else {
+			Debug.LogError ("NPC Texture is null in DialogueGUI.cs, method setTargetTex(Texture2D npcTex)");
+		}
+	}
+
+
 	// Update is called once per frame
 	void Update () {
 		if(!_dialogue) return;
-		
+
 		if(_windowReady) calculateText();
 		
 		if(!_dialogue || _ending) return;
@@ -89,6 +111,18 @@ public class DialogueGUI : MonoBehaviour {
 				}
 			}
 		}
+
+		if (isTween){
+			// Camera
+			float t = (Time.time - startTime) / duration;
+			float prevOrtho = Camera.main.camera.orthographicSize;
+			Camera.main.orthographicSize = Mathf.SmoothStep(prevOrtho, target, t);
+		}
+
+	}
+
+	public void tweenCam(){
+		isTween = true;
 	}
 
 	public void setSkin(GUISkin skin)
@@ -153,6 +187,9 @@ public class DialogueGUI : MonoBehaviour {
 	
 	private void onDialogueWindowCloseHandler(){
 		startWindowTweenOut();
+
+		// Resets the camera to default size
+		Camera.main.orthographicSize = 5.0f;
 	}
 	
 	private void onDialoguerMessageEvent(string message, string metadata){
@@ -161,11 +198,37 @@ public class DialogueGUI : MonoBehaviour {
 		}
 	}
 	#endregion
+
+	private void drawPortraits(){
+		// Main char texture
+		if (mainChar != null){
+			GUI.DrawTexture (new Rect (Screen.width - (mainChar.width / 1.5f),
+			                           Screen.height - (mainChar.height / 2.25f),
+			                           mainChar.width,
+			                           mainChar.height),
+			                 		   mainChar);
+		} else {
+			Debug.LogError ("MainChar Texture is null!");
+		}
+
+		// Other char texture
+		if (targetChar != null){
+			GUI.DrawTexture (new Rect (0f,
+			                           Screen.height - targetChar.height,
+			                           targetChar.width,
+			                           targetChar.height),
+			                 		   targetChar);
+		} else {
+			Debug.LogError ("TargetChar Texture is null!");
+		}
+	}
 	
 	#region Old School RPG Dialogue GUI
 	void OnGUI(){
 		
 		if(!_showDialogueBox) return;
+
+		drawPortraits ();
 		
 		// Set GUI Skin
 		GUI.skin = skin;
@@ -205,14 +268,18 @@ public class DialogueGUI : MonoBehaviour {
 		drawShadowedText(textLabelRect, _windowCurrentText);
 		
 		if(_isBranchedText && _windowCurrentText == _windowTargetText && _branchedTextChoices != null){
-			for(int i=0; i<_branchedTextChoices.Length; i+=1){
+			for(int i=0; i<_branchedTextChoices.Length; i++){
 				float spacing = 22f;
-				float choiceRectY = dialogueBoxRect.yMin + spacing*i + 14;
+				float choiceRectY = dialogueBoxRect.yMin + spacing*i + 14f;
 				//float choiceRectY = (dialogueBoxRect.yMax - (((spacing) * _branchedTextChoices.Length) - (spacing*i)) - 18);
 				//float choiceRectY = dialogueBoxRect.yMax - spacing*i * _branchedTextChoices.Length;
 				Rect choiceRect = new Rect(dialogueBoxRect.x + 60, choiceRectY, dialogueBoxRect.width - 80, 38);
+
 				drawShadowedText(choiceRect, _branchedTextChoices[i]);
-				if(choiceRect.Contains(new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y))){
+
+				// +10 and -10 to fix dual cursor selection bug
+				if(choiceRect.Contains(new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y + 10))
+				   && choiceRect.Contains (new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y - 10))) {
 					if(_currentChoice != i){
 						//audioText.Play();
 						_currentChoice = i;
@@ -227,11 +294,12 @@ public class DialogueGUI : MonoBehaviour {
 				}
 			}
 		}
+
 	}
 	
 	// Draws a dialogue box
 	private void drawDialogueBox(Rect rect){
-		drawDialogueBox(rect, new Color(45/255.0F,111f/255.0F, 255/255.0F));
+		drawDialogueBox(rect, new Color(45f/255.0F,111f/255.0F, 1f/255.0F));
 	}
 	
 	private void drawDialogueBox(Rect rect, Color color){

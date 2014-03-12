@@ -37,7 +37,6 @@ public class NPC : CaseElement {
 		npcKnowledge.addNewEntry (new DictEntry(enumName, guilt, weaponProficiency, scene, trust));
 
 		convSetup = new Conversation (GameManager.Instance.GetMainCharacter(), relations, npcKnowledge[0].getIndex());
-
 	}
 	
 	public void OnMouseEnter(){
@@ -47,7 +46,6 @@ public class NPC : CaseElement {
 	//enable conversation object if left mouse button is clicked.
 	public void OnMouseDown(){
 		if(Input.GetMouseButton(0)){
-			Debug.LogError("HI");
 			if (this.elementName.CompareTo("Liam O'Shea")==0){
 				Debug.LogError("HI LIAM");
 				GameManager.npcList.Find(x => x.elementName.CompareTo("Liam O'Shea")==0).description = "Liam is a guard at the Fin. He can wield LASER PISTOLS. He says he was at the GYM.";
@@ -66,6 +64,18 @@ public class NPC : CaseElement {
 			playerScript temp = (playerScript) FindObjectOfType(typeof(playerScript));
 			temp.canWalk = false;
 			convSetup.generateDialoguer();
+
+			string npcResource = (this.elementName + "Sprite").Replace(" ", string.Empty);
+			Texture2D npcTex = (Texture2D) Resources.Load (npcResource);
+			Debug.Log ("npcResource: " + npcResource);
+			Debug.LogError ("EleName: " + this.elementName);
+			Debug.LogError ("Texture: " + npcTex.ToString());
+
+			DialogueGUI dGUI = GameManager.Instance.GetComponent<DialogueGUI>();
+			Debug.LogError ("dgui: " + dGUI.ToString());
+			dGUI.setTargetTex(npcTex);
+			dGUI.tweenCam();
+
 			//GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
 
 			/*
