@@ -26,6 +26,22 @@ public class Dialoguer{
 		DialoguerEventManager.onWaitComplete += events.handler_WaitComplete;
 		DialoguerEventManager.onMessageEvent += events.handler_MessageEvent;
 	}
+
+	public static void Initialize(string filename){
+		events = new DialoguerEvents();
+		// Initialize DialoguerDataManager
+		DialoguerDataManager.Initialize(filename);
+		
+		// Subscribe to events
+		DialoguerEventManager.onStarted += events.handler_onStarted;
+		DialoguerEventManager.onEnded += events.handler_onEnded;
+		DialoguerEventManager.onSuddenlyEnded += events.handler_SuddenlyEnded;
+		DialoguerEventManager.onTextPhase += events.handler_TextPhase;
+		DialoguerEventManager.onWindowClose += events.handler_WindowClose;
+		DialoguerEventManager.onWaitStart += events.handler_WaitStart;
+		DialoguerEventManager.onWaitComplete += events.handler_WaitComplete;
+		DialoguerEventManager.onMessageEvent += events.handler_MessageEvent;
+	}
 	#endregion
 
 	#region Dialogues

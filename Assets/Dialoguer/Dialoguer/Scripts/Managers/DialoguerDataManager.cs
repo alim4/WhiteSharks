@@ -28,6 +28,25 @@ namespace DialoguerCore{
 			);
 			*/
 		}
+
+		public static void Initialize(string filename){
+			
+			XmlSerializer deserializer = new XmlSerializer(typeof(DialogueEditorMasterObject));
+			XmlReader xmlReader = XmlReader.Create(new StringReader((Resources.Load(filename) as TextAsset).text));
+			DialogueEditorMasterObject editorData = (DialogueEditorMasterObject)deserializer.Deserialize(xmlReader);
+			
+			_data = editorData.getDialoguerData();
+			
+			/*
+			Debug.Log (
+				"DialoguerDataManager Initialized\n\n"+
+				"Data contains:\n"+_data.dialogues.Count+" Dialogues\n"+
+				_data.globalVariables.booleans.Count+" Global Booleans"+
+				_data.globalVariables.floats.Count+" Global Floats\n"+
+				_data.globalVariables.strings.Count+" Global Strings\n"
+			);
+			*/
+		}
 		
 		#region Saving and Loading
 		// SAVING AND LOADING

@@ -16,7 +16,7 @@ public class MoveCam : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider){
 		playerScript playerObj = collider.gameObject.GetComponent<playerScript> ();
-
+		playerObj.renderer.enabled = true;
 		if (playerObj != null) {
 			if(right){
 				mainCam.transform.Translate(new Vector3(-9.273237f, 0, 0));
@@ -31,6 +31,7 @@ public class MoveCam : MonoBehaviour {
 				playerObj.moveTarget(new Vector2(2f, 0));
 			}
 		}
+		playerObj.renderer.enabled = true;
 	}
 
 

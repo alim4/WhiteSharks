@@ -12,7 +12,7 @@ public class CharacterSelect : MonoBehaviour {
 		if(Input.GetMouseButton(0)){
 			GameManager.Instance.SetMainCharacter(character);
 			//load level 1
-			Application.LoadLevel ("Tutorial");
+			Application.LoadLevel ("stage1");
 		}
 	}
 }

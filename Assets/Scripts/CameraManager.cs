@@ -43,12 +43,12 @@ public class CameraManager : MonoBehaviour {
 		Vector3 playerPos = player.transform.position;
 		Vector3 nudgeVal = transform.position;
 		// negative
-		if (playerPos.x < 0 && Mathf.Abs(playerPos.x) > quarterX) {
+		if (playerPos.x < 0 && Mathf.Abs(playerPos.x) > quarterX * 0.80f) {
 			//nudgeVal.x += -0.05f;
 			nudgeVal.x = Mathf.Clamp(nudgeVal.x - 0.1f, -quarterX, quarterX);
 			transform.position = nudgeVal;
 		}
-		else if (playerPos.x > 0 && Mathf.Abs (playerPos.x) > quarterX) {
+		else if (playerPos.x > 0 && Mathf.Abs (playerPos.x) > quarterX * 0.80f) {
 			//nudgeVal.x += 0.05f;
 			nudgeVal.x = Mathf.Clamp (nudgeVal.x + 0.1f, -quarterX, quarterX);
 			transform.position = nudgeVal;

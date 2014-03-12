@@ -25,9 +25,7 @@ public class Scene : MonoBehaviour {
 		}
 		player.GetComponent<playerScript> ().currentRoom = this.id;
 		player.GetComponent<playerScript> ().scaleInfo = new float[4]{minScale, maxScale, minY, maxY};
-	}
 
-	void Update() {
-		//Debug.Log ("SCENE:::::::" + renderer.bounds.size.x);
+		GameManager.Instance.updateMouseIcon ("Walk_Icon");
 	}
 }
