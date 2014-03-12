@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour {
 		// Initialize various managers for the game
 		// Singleton pattern
 		DontDestroyOnLoad(GameManager.Instance);
-		DontDestroyOnLoad(InputManager.Instance);
+		//DontDestroyOnLoad(InputManager.Instance);
 		GameManager.Instance.startState();
 		
 	}
@@ -57,7 +57,7 @@ public class MainMenu : MonoBehaviour {
 		print ("Entering Options menu");
 		
 		//_mainMenu = false;
-		DontDestroyOnLoad (InputManager.Instance);
+		//DontDestroyOnLoad (InputManager.Instance);
 	}
 	
 	private void quitGame() {

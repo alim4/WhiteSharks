@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0105b4d1513af74ea7a8ca297ec3d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: awesome
+  character: Frank
 --- !u!61 &343252333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0105b4d1513af74ea7a8ca297ec3d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: kungfu
+  character: May
 --- !u!1 &1392165933
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,4 +378,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0105b4d1513af74ea7a8ca297ec3d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: player
+  character: Jane
