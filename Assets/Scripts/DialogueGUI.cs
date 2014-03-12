@@ -189,7 +189,7 @@ public class DialogueGUI : MonoBehaviour {
 		startWindowTweenOut();
 
 		// Resets the camera to default size
-		Camera.main.orthographicSize = 5.0f;
+		Camera.main.orthographicSize = 6.0f;
 	}
 	
 	private void onDialoguerMessageEvent(string message, string metadata){
