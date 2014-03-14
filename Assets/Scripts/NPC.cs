@@ -63,19 +63,21 @@ public class NPC : CaseElement {
 				GameManager.npcList.Find(x => x.elementName.CompareTo("Josh Susach")==0).description = "He's a criminal. He's an artist. He's proud of both. He can wield the METAL PIPE. He says he was at the GYM.";
 				journal.Instance.updateNPCs();
 			}
+
 			playerScript temp = (playerScript) FindObjectOfType(typeof(playerScript));
 			temp.canWalk = false;
 			convSetup.generateDialoguer();
 			string npcResource = (this.elementName + "Sprite").Replace(" ", string.Empty);
  			Texture2D npcTex = (Texture2D) Resources.Load (npcResource);
 // 			Debug.Log ("npcResource: " + npcResource);
-// 			Debug.LogError ("EleName: " + this.elementName);
+ 			Debug.LogError ("EleName: " + this.elementName);
 // 			Debug.LogError ("Texture: " + npcTex.ToString());
  
  			DialogueGUI dGUI = GameManager.Instance.GetComponent<DialogueGUI>();
 // 			Debug.LogError ("dgui: " + dGUI.ToString());
  			dGUI.setTargetTex(npcTex);
  			dGUI.tweenCam();
+
 			//GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
 			
 			/*

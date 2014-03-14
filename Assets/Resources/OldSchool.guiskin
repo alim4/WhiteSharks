@@ -15,7 +15,7 @@ MonoBehaviour:
   m_box:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 11001, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_textField:
     m_Name: textfield
     m_Normal:
-      m_Background: {fileID: 11024, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 0}
       m_TextColor: {r: .799999952, g: .799999952, b: .799999952, a: 1}
     m_Hover:
       m_Background: {fileID: 11026, guid: 0000000000000000e000000000000000, type: 0}
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_textArea:
     m_Name: textarea
     m_Normal:
-      m_Background: {fileID: 11024, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 0}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_Hover:
       m_Background: {fileID: 11026, guid: 0000000000000000e000000000000000, type: 0}
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_window:
     m_Name: window
     m_Normal:
-      m_Background: {fileID: 11023, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_CustomStyles:
   - m_Name: box_border
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 975cf1f8ec8c64c96a173c88d0bf9b4d, type: 3}
+      m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -1253,7 +1253,7 @@ MonoBehaviour:
     m_StretchHeight: 0
   - m_Name: box_background
     m_Normal:
-      m_Background: {fileID: 2800000, guid: a44439d93626c41cb889fb5d34819dcc, type: 3}
+      m_Background: {fileID: 2800000, guid: aaf3f9a47f1f24905b4d195022719a67, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
