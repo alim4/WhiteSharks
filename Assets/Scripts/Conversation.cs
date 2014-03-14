@@ -31,7 +31,7 @@ public class Conversation {
 			guilty = true;
 		
 		Dialoguer.SetGlobalBoolean (0, guilty);
-		Dialoguer.SetGlobalString (0, archeType);
+		//Dialoguer.SetGlobalString (0, archeType);
 		
 		/*
 		 * 1 Liam_Witness_Category
@@ -57,14 +57,14 @@ public class Conversation {
 
 			//Debug.LogWarning (idConversion);
 
-			Dialoguer.SetGlobalFloat(idNum - 3, curr.getTrust ());
+			//Dialoguer.SetGlobalFloat(idNum - 3, curr.getTrust ());
 			
-			if ((int)curr.getGuilt() <= (int) GuiltLevel.suspect){
-				Dialoguer.SetGlobalString(idConversion, curr.getWeapon().ToString());
-				Dialoguer.SetGlobalString(idConversion + 1, curr.getLocation());
-			} else {
-				Dialoguer.SetGlobalString(idNum, curr.getWeapon().ToString());
-			}
+//			if ((int)curr.getGuilt() <= (int) GuiltLevel.suspect){
+//				Dialoguer.SetGlobalString(idConversion, curr.getWeapon().ToString());
+//				Dialoguer.SetGlobalString(idConversion + 1, curr.getLocation());
+//			} else {
+//				Dialoguer.SetGlobalString(idNum, curr.getWeapon().ToString());
+//			}
 		}
 		
 		
