@@ -43,6 +43,9 @@ public class DialogueGUI : MonoBehaviour {
 	private Texture2D mainChar;
 	private Texture2D targetChar;
 
+	private float native_width = 1920;
+	private float native_height = 1080;
+
 	private bool isTween = false;
 	private float startTime;
 	private float duration = 175.0f;
@@ -203,24 +206,31 @@ public class DialogueGUI : MonoBehaviour {
 		/// VERY SENSITIVE VALUES USED FOR PORTRAIT POSITIONING
 		/// to do: make them resolution independent
 		//////
+
+		float rx = Screen.width / native_width;
+		float ry = Screen.height / native_height;
+
+		// Used to make GUI resolution independent
+		GUI.matrix = Matrix4x4.TRS (new Vector3(0f,0f,0f), Quaternion.identity, new Vector3(rx, ry, 1f));
+
 		Color[] mainPixels;		// used for tinting
 		Color[] targetPixels;	// used for tinting
 		Color tint = new Color (0.25f, 0.25f, 0.25f, 0.9f);
 
-		float mainCharScale = 0.65f;
-		float targetCharScale = 0.5f;
+		float mainCharScale = 1.8f;
+		float targetCharScale = 1.5f;
 		// Main char texture
 		if (mainChar != null){
 			if (Dialoguer.GetGlobalBoolean(0) == false){	// Right side
-				GUI.DrawTexture (new Rect (Screen.width - (mainChar.width / 1.15f),
-			                           Screen.height - (mainChar.height / 1.43f),
+				GUI.DrawTexture (new Rect (1450f,
+			                           465f,
 			                           mainChar.width * mainCharScale * _windowTweenValue,
 			                           mainChar.height * mainCharScale * _windowTweenValue),
 			                 		   mainChar);
 			} else {
 				GUI.color = tint;
-				GUI.DrawTexture (new Rect (Screen.width - (mainChar.width / 1.15f),
-				                           Screen.height - (mainChar.height / 1.43f),
+				GUI.DrawTexture (new Rect (1450f,
+				                           465f,
 				                           mainChar.width * mainCharScale * _windowTweenValue,
 				                           mainChar.height * mainCharScale * _windowTweenValue),
 				                		   mainChar);
@@ -233,15 +243,15 @@ public class DialogueGUI : MonoBehaviour {
 		// Other char texture
 		if (targetChar != null){
 			if (Dialoguer.GetGlobalBoolean(0) == true){		// Left side
-				GUI.DrawTexture (new Rect (50f,
-			                           Screen.height - targetChar.height,
-			                           targetChar.width * targetCharScale * _windowTweenValue,
-			                           targetChar.height * targetCharScale * _windowTweenValue),
-				                 	   targetChar);
+				GUI.DrawTexture (new Rect (160f,
+				                           550f,
+				                           targetChar.width * targetCharScale * _windowTweenValue,
+				                           targetChar.height * targetCharScale * _windowTweenValue),
+					                 	   targetChar);
 			} else {
 				GUI.color = tint;
-				GUI.DrawTexture (new Rect (50f,
-				                           Screen.height - targetChar.height,
+				GUI.DrawTexture (new Rect (160f,
+				                           550f,
 				                           targetChar.width * targetCharScale * _windowTweenValue,
 				                           targetChar.height * targetCharScale * _windowTweenValue),
 				                 		   targetChar);
