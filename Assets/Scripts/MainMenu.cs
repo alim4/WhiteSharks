@@ -42,15 +42,24 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	private void startGame() {
-		Debug.Log("Starting game");
-		Dialoguer.Initialize ();
-		
+		Debug.Log("Starting gameadsjbadsjbfdajbkadfj");
+		Debug.Log (GameManager.episodeDialogues [GameManager.currentEpisode]); 
+		Dialoguer.Initialize (GameManager.episodeDialogues[GameManager.currentEpisode]);
 		// Initialize various managers for the game
 		// Singleton pattern
+
 		DontDestroyOnLoad(GameManager.Instance);
 		DontDestroyOnLoad(InputManager.Instance);
 		GameManager.Instance.startState();
-		
+
+		switch (GameManager.currentEpisode) {
+		case 0:
+			GameManager.npcConversations[(int)NPCNames.Shammy] = 1;
+			GameManager.npcConversations[(int)NPCNames.CarlosFranco] = 4;
+			GameManager.npcConversations[(int)NPCNames.NoelAlt] = 3;
+			break;
+		}
+
 	}
 	
 	private void optionsMenu() {

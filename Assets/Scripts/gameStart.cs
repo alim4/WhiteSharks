@@ -41,7 +41,12 @@ public class gameStart : MonoBehaviour {
 	}
 	
 	private void startGame() {
+<<<<<<< HEAD
 		Debug.Log("Starting game");
+=======
+		Debug.Log("Starting gamedasadasDASAdssad");
+		Debug.Log (GameManager.episodeDialogues [GameManager.currentEpisode]); 
+>>>>>>> dcf4ca3a1640db8f44b22971b1c12df3a9d6bb19
 		Dialoguer.Initialize (GameManager.episodeDialogues[GameManager.currentEpisode]);
 
 		// Initialize various managers for the game

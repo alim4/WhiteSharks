@@ -67,8 +67,9 @@ MonoBehaviour:
   alibi: F
   scene: scene1
   trust: 0
-  enumName: 9
+  enumName: 4
   relations: 040000000500000006000000070000000800000009000000
+  myConvo: 0
   mouseOverIcon: Speech_Icon
 --- !u!212 &21200000
 SpriteRenderer:

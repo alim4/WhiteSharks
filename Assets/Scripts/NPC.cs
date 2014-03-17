@@ -23,7 +23,7 @@ public class NPC : CaseElement {
 	public float trust;
 	public NPCNames enumName;
 	public List<NPCNames> relations;
-	private Conversation convSetup;
+	public int myConvo;
 	
 	public Dictionary npcKnowledge;
 
@@ -31,13 +31,7 @@ public class NPC : CaseElement {
 	public string mouseOverIcon = "Speech_Icon";
 
 	void Start(){
-
-
-		npcKnowledge = new Dictionary ();
-		npcKnowledge.addNewEntry (new DictEntry(enumName, guilt, weaponProficiency, scene, trust));
-
-		convSetup = new Conversation (GameManager.Instance.GetMainCharacter(), relations, npcKnowledge[0].getIndex());
-
+		myConvo = GameManager.npcConversations[(int)enumName];
 	}
 	
 	public void OnMouseEnter(){
@@ -66,6 +60,7 @@ public class NPC : CaseElement {
 
 			playerScript temp = (playerScript) FindObjectOfType(typeof(playerScript));
 			temp.canWalk = false;
+<<<<<<< HEAD
 			convSetup.generateDialoguer();
 			string npcResource = (this.elementName + "Sprite").Replace(" ", string.Empty);
  			Texture2D npcTex = (Texture2D) Resources.Load (npcResource);
@@ -78,6 +73,19 @@ public class NPC : CaseElement {
  			dGUI.setTargetTex(npcTex);
  			dGUI.tweenCam();
 
+=======
+			Dialoguer.StartDialogue(myConvo);
+			string npcResource = (this.elementName + "Sprite").Replace(" ", string.Empty);
+ 			Texture2D npcTex = (Texture2D) Resources.Load (npcResource);
+ 			Debug.Log ("npcResource: " + npcResource);
+ 			Debug.LogError ("EleName: " + this.elementName);
+ 			Debug.LogError ("Texture: " + npcTex.ToString());
+ 
+ 			DialogueGUI dGUI = GameManager.Instance.GetComponent<DialogueGUI>();
+ 			Debug.LogError ("dgui: " + dGUI.ToString());
+ 			dGUI.setTargetTex(npcTex);
+ 			dGUI.tweenCam();
+>>>>>>> dcf4ca3a1640db8f44b22971b1c12df3a9d6bb19
 			//GameManager.npcList.Find(x => x.elementName.CompareTo(this.elementName) == 0).setVisible(true);
 			
 			/*

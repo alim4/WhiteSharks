@@ -17,6 +17,7 @@ namespace DialoguerCore{
 		}
 		
 		public static void startDialogue(int dialogueId){
+			Debug.Log("been called");
 			if(dialogue != null){ 
 				DialoguerEventManager.dispatchOnSuddenlyEnded();
 			}
@@ -51,8 +52,12 @@ namespace DialoguerCore{
 			reset();
 
 			//Debug.LogError ("DANGER");
-			playerScript temp = (playerScript) MonoBehaviour.FindObjectOfType(typeof(playerScript));
-			temp.canWalk = true;
+			GameManager.dialogueJustFinished = true;
+			if (GameManager.Instance.playerInScene) {
+								playerScript temp = (playerScript)MonoBehaviour.FindObjectOfType (typeof(playerScript));
+								temp.canWalk = true;
+						}
+
 		}
 		
 		

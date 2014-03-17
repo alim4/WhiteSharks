@@ -12,8 +12,17 @@ public class GameManager : MonoBehaviour {
 
 	//Variables for case control
 	public static int currentEpisode = 0;
+<<<<<<< HEAD
 	public static string[] episodeDialogues = new string[2]{"intro","case0"};
 
+=======
+	public static string[] episodeStartLevels = new String[12]{"JaneIntro","","","","","","","","","","",""};
+	public static string[] episodeDialogues = new string[12]{"case0","","","","","","","","","","",""};
+
+	public static bool dialogueJustFinished = false;
+
+	public bool playerInScene = false;
+>>>>>>> dcf4ca3a1640db8f44b22971b1c12df3a9d6bb19
 	private static GameManager instance;
 	private gameStates _currentState;
 	private string _currLevel;			// Current level
@@ -35,6 +44,9 @@ public class GameManager : MonoBehaviour {
 
 	//This is the target state the player wishes to reach for maximum score
 	public static Dictionary idealGameState;
+
+	//Shammy 0, Noel 1, Carlos 2
+	public static int[] npcConversations = new int[7]{0, 0, 0, 0, 0, 0, 0};
 
 	//Handles mouse cursor information
 	public static int cursorSize = 32;
@@ -239,7 +251,7 @@ public class GameManager : MonoBehaviour {
 	public void updateMouseIcon(string whichSprite){
 		currMouse = (Texture2D)mouseSprites [Array.IndexOf (spriteIndex, whichSprite)];
 
-		print (currMouse.ToString () + " WHEEEE");
+		//print (currMouse.ToString () + " WHEEEE");
 	}
 
 	private void addWitnesses(){
@@ -270,13 +282,14 @@ public class GameManager : MonoBehaviour {
 
 		roomIDList = new ArrayList ();
 		rooms = new string[5];
-		rooms[2] = "bar";
+		rooms[2] = "finoffice";
 		rooms[3] = "bellyRoom";
-		roomIDList.Add("stage1");
-		roomIDList.Add("stage2");
-		roomIDList.Add("stage3");
-		roomIDList.Add("bar");
-		roomIDList.Add("stage4");
+		roomIDList.Add("finroom");
+		roomIDList.Add("finbalcony");
+		roomIDList.Add("finplaza");
+		roomIDList.Add("bellybar");
+		roomIDList.Add("bellyalleyway");
+		roomIDList.Add("bellyroom");
 		roomList.Add ("Office");
 		roomList.Add ("Cafe");
 		roomList.Add ("Gym");

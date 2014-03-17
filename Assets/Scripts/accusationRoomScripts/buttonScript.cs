@@ -91,7 +91,7 @@ public class buttonScript : MonoBehaviour {
 	void goBack() {
 		//it goes back to stage1 for now
 		DontDestroyOnLoad(GameManager.Instance);
-		Application.LoadLevel("stage1");
+		Application.LoadLevel("finroom");
 	}
 
 }
