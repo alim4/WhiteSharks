@@ -63,14 +63,14 @@ MonoBehaviour:
   defaultIcon: Walk_Icon
   playerObj: {fileID: 0}
   box: {fileID: 6100000}
-  placed: 0
   weaponProficiency: 5
   highClass: 1
   alibi: F
   scene: scene1
   trust: 0
-  enumName: 7
+  enumName: 3
   relations: 040000000600000005000000070000000800000009000000
+  myConvo: 0
   mouseOverIcon: Speech_Icon
 --- !u!212 &21200000
 SpriteRenderer:

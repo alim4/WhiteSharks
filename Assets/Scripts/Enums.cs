@@ -27,7 +27,7 @@ public enum Category
 public enum CaseObjectNames{
 	
 	unrelated = -1,
-	HallPass = 1,
+	HallPass = 1,	
 	Picture = 2,
 	Bracelet = 3
 	
@@ -35,12 +35,13 @@ public enum CaseObjectNames{
 
 public enum NPCNames{
 	
-	LiamOShea = 4,
-	NinaWalker = 5,
-	JoshSusach = 6,
-	NoelAlt = 7,
-	CarlosFranco = 8,
-	PeijunShi = 9,
+	LiamOShea = 0,
+	NinaWalker = 1,
+	JoshSusach = 2,
+	NoelAlt = 3,
+	CarlosFranco = 4,
+	PeijunShi = 5,
+	Shammy = 6,
 	
 	unrelated = -2
 };

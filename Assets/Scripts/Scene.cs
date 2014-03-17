@@ -5,14 +5,16 @@ using UnityEngine;
 using System.Collections;
 
 public class Scene : MonoBehaviour {
-	public static GameObject player;
+	public static GameObject player, backEffect;
 	public float scaleX, scaleY;
 	public float maxY, minY;
 	public float minScale, maxScale;
+	public float baseSpeed;
 
 	public int id;
 	// Use this for initialization
 	void Start () {
+		backEffect = (GameObject)Instantiate(Resources.Load("effect"));
 		string temp = (string)GameManager.Instance.GetMainCharacter ();
 		player = (GameObject)Instantiate(Resources.Load((temp)));
 		Vector2 tempVec = transform.position;
@@ -25,6 +27,8 @@ public class Scene : MonoBehaviour {
 		}
 		player.GetComponent<playerScript> ().currentRoom = this.id;
 		player.GetComponent<playerScript> ().scaleInfo = new float[4]{minScale, maxScale, minY, maxY};
+		player.GetComponent<playerScript> ().baseSpeed = baseSpeed;
+		player.GetComponent<playerScript> ().minSpeed = baseSpeed;
 
 		GameManager.Instance.updateMouseIcon ("Walk_Icon");
 	}
