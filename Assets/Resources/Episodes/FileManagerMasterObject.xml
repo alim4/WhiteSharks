@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FileManagerMasterObject[
+  <!ELEMENT Episode ANY>
+  <!ELEMENT NPC ANY>
+  <!ATTLIST NPC name ID #REQUIRED>
+  <!ATTLIST Episode id ID #REQUIRED>
+  ]>
+<FileManagerMasterObject>
+  <Episode id="_1">
+    <NPC name="Frank">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Fin</scene>
+      <dialoguerID>2</dialoguerID>
+    </NPC>
+    <DialoguerName>Dialoguerrrrr</DialoguerName>
+    <BellyAccess>True</BellyAccess>
+    <NPC name="Frank">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Fin</scene>
+      <dialoguerID>2</dialoguerID>
+    </NPC>
+    <DialoguerName>Dialoguerrrrr</DialoguerName>
+    <BellyAccess>True</BellyAccess>
+    <NPC name="Frank">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Fin</scene>
+      <dialoguerID>2</dialoguerID>
+    </NPC>
+    <DialoguerName>Dialoguerrrrr</DialoguerName>
+    <BellyAccess>True</BellyAccess>
+    <NPC name="Frank">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Fin</scene>
+      <dialoguerID>2</dialoguerID>
+    </NPC>
+    <DialoguerName>Dialoguerrrrr</DialoguerName>
+    <BellyAccess>True</BellyAccess>
+    <NPC name="Frank">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Fin</scene>
+      <dialoguerID>2</dialoguerID>
+    </NPC>
+    <DialoguerName>Dialoguerrrrr</DialoguerName>
+    <BellyAccess>True</BellyAccess>
+    <NPC name="Frank">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Fin</scene>
+      <dialoguerID>2</dialoguerID>
+    </NPC>
+    <DialoguerName>Dialoguerrrrr</DialoguerName>
+    <BellyAccess>True</BellyAccess>
+    <NPC name="Frank">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Fin</scene>
+      <dialoguerID>2</dialoguerID>
+    </NPC>
+    <DialoguerName>Dialoguerrrrr</DialoguerName>
+    <BellyAccess>True</BellyAccess>
+    <NPC name="Frank">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Fin</scene>
+      <dialoguerID>2</dialoguerID>
+    </NPC>
+    <DialoguerName>Dialoguerrrrr</DialoguerName>
+    <BellyAccess>True</BellyAccess>
+  </Episode>
+  <Episode id="_2">
+    <NPC name="Jane">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Belly</scene>
+      <dialoguerID>1</dialoguerID>
+    </NPC>
+    <StartScene>Yo mamma</StartScene>
+    <NPC name="Jane">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Belly</scene>
+      <dialoguerID>1</dialoguerID>
+    </NPC>
+    <StartScene>Yo mamma</StartScene>
+    <NPC name="Jane">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Belly</scene>
+      <dialoguerID>1</dialoguerID>
+    </NPC>
+    <StartScene>Yo mamma</StartScene>
+    <NPC name="Jane">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Belly</scene>
+      <dialoguerID>1</dialoguerID>
+    </NPC>
+    <StartScene>Yo mamma</StartScene>
+    <NPC name="Jane">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Belly</scene>
+      <dialoguerID>1</dialoguerID>
+    </NPC>
+    <StartScene>Yo mamma</StartScene>
+    <NPC name="Jane">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Belly</scene>
+      <dialoguerID>1</dialoguerID>
+    </NPC>
+    <StartScene>Yo mamma</StartScene>
+    <NPC name="Jane">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Belly</scene>
+      <dialoguerID>1</dialoguerID>
+    </NPC>
+    <StartScene>Yo mamma</StartScene>
+    <NPC name="Jane">
+      <position>
+        <x>3.0</x>
+        <y>7.0</y>
+        <z>5.0</z>
+      </position>
+      <scene>Belly</scene>
+      <dialoguerID>1</dialoguerID>
+    </NPC>
+    <StartScene>Yo mamma</StartScene>
+  </Episode>
+</FileManagerMasterObject>
